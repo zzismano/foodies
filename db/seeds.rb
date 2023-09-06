@@ -9,7 +9,7 @@
 p "Cleaning database"
 User.destroy_all
 Recipe.destroy_all
-Meals.destroy_all
+Meal.destroy_all
 
 p "Seeding users..."
 user1 = User.create(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
@@ -19,7 +19,7 @@ user4 = User.create(username: "Colette", first_name: "Colette", last_name: "Garo
 user5 = User.create(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
 
 file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
-user1.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
+user1.photo.attach(io: file1, filename: "#{user1.username}profile.png", content_type: "image/png")
 
 file2 = URI.open("https://static.wikia.nocookie.net/movies157/images/9/9a/Gusteau.jpg/revision/latest?cb=20210318215933")
 user2.photo.attach(io: file2, filename: "profile.png", content_type: "image/png")
@@ -34,12 +34,15 @@ file5 = URI.open("https://media.licdn.com/dms/image/C5612AQEtaPzav6ILVg/article-
 user5.photo.attach(io: file5, filename: "profile.png", content_type: "image/png")
 
 p "Seeding Recipes..."
-recipes1 = Recipe.create(
+recipe1 = Recipe.create(
   title:"Filet Mignon",
   ingredients:"A Filet Mignon steak of any size",
   instructions:"For a medium steak, we cooked our steak at medium-high heat on the stovetop for around 5 minutes, then flipped, added our butter, and cooked for an additional 3-5 minutes. We then transferred our skillet to a 400° oven and cooked for around 5 minutes. Tip: Check the temperature of your meat before transferring to the oven! That way, you can see how far you are from your desired temperature.",
   caption:"Filet mignon is the smaller tip of tenderloin and one of the most expensive cuts of steak, due to its prized texture and that it's only about 2% of the total animal.",
   user: user1)
+
+file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
+recipe1.photo.attach(io: file1, filename: "recipe_post.png", content_type: "image/png")
 
 recipe2 = Recipe.create(
   title:"Romeo and Juliet Cheesecake",
@@ -55,6 +58,9 @@ recipe2 = Recipe.create(
   caption:"One of my faves from Brazil is a simple dessert known as 'Romeo and Juliet', or cheese with guava paste. Here I share these flavours in cheesecake form!",
   user: user1)
 
+file2 = URI.open("https://www.daninoce.com.br/wp-content/uploads/2017/09/cheesecake-romeu-e-julieta-1.png")
+recipe2.photo.attach(io: file2, filename: "recipe_post.png", content_type: "image/png")
+
 recipe3 = Recipe.create(
   title:"Ratatouille",
   ingredients:"2 eggplants, 6 roma tomatoes, 2 yellow squashes, 2 zucchinis",
@@ -62,13 +68,22 @@ recipe3 = Recipe.create(
   caption:"My specialty",
   user: user1)
 
+file3 = URI.open("https://assets.unileversolutions.com/recipes-v2/181044.jpg?imwidth=1600")
+recipe3.photo.attach(io: file3, filename: "recipe_post.png", content_type: "image/png")
+
 # recipe4 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
-# recipe5 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
 
 p "Seeding Meals..."
 
 meal1 = Meal.create(title: "Ratatouille", restaurant:"Gusteau's", caption: "Check it out!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
+meal2 = Meal.create(title: "Leak and Potato Soup", restaurant:"Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
+
 file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
-meal1.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
+meal1.photo.attach(io: file1, filename: "post.png", content_type: "image/png")
+
+file2 = URI.open("https://food-images.files.bbci.co.uk/food/recipes/leekandpotatosoup_1920_16x9.jpg")
+meal2.photo.attach(io: file2, filename: "post.png", content_type: "image/png")
+
+# meal3 = Meal.create(title: "", restaurant:"", caption: "", lat: "", long: "", user:)
 
 p "Seeding complete!"
