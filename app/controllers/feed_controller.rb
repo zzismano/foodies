@@ -3,4 +3,8 @@ class FeedController < ApplicationController
     @meals = Meal.all
     @recipes = Recipe.all
   end
+
+  def show
+  end
+
 end
