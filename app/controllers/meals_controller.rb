@@ -1,4 +1,8 @@
 class MealsController < ApplicationController
+  def index
+    @meals = Meal.all
+  end
+
   def new
     #post new meal
     @meal = Meal.new
