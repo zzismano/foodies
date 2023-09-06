@@ -9,7 +9,7 @@
 p "Cleaning database"
 User.destroy_all
 Recipe.destroy_all
-Meals.destroy_all
+Meal.destroy_all
 
 p "Seeding users..."
 user1 = User.create(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
