@@ -9,13 +9,29 @@
 p "Cleaning database"
 User.destroy_all
 Recipe.destroy_all
+Meals.destroy_all
 
 p "Seeding users..."
-user1 = User.create(username: "Remy", first_name: "Patton" , last_name: "Oswalt" , city: "Paris" , country: "France" , age: , email: "rat_chef@foodies.go" , password: "123456")
-user2 = User.create(username: "Gusteau", first_name: "Brad" , last_name: "Garrett" , city: "Paris" , country: "France" , age: , email: "master_chef@foodies.go" , password: "654321")
-user3 = User.create(username: "Linguini", first_name: "Lou" , last_name: "Romano" , city: "Paris" , country: "France" , age: , email: "pasta_chef@foodies.go" , password: "123654")
-user4 = User.create(username: "Colette", first_name: "Janeane" , last_name: "Garofalo" , city: "Paris" , country: "France" , age: , email: "victory_chef@foodies.go" , password: "654123")
-user5 = User.create(username: "Django", first_name: "Brian" , last_name: "Dennehy" , city: "Paris" , country: "France" , age: , email: "review_chef@foodies.go" , password: "321456")
+user1 = User.create(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
+user2 = User.create(username: "Gusteau", first_name: "Gusteau", last_name: "Garrett", city: "Paris", country: "France", age: 132, email: "master_chef@foodies.go", password: "654321")
+user3 = User.create(username: "Linguini", first_name: "Linguini", last_name: "Romano", city: "Paris", country: "France", age: 22, email: "pasta_chef@foodies.go", password: "123654")
+user4 = User.create(username: "Colette", first_name: "Colette", last_name: "Garofalo", city: "Paris", country: "France", age: 23, email: "victory_chef@foodies.go", password: "654123")
+user5 = User.create(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
+
+file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
+user1.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
+
+file2 = URI.open("https://static.wikia.nocookie.net/movies157/images/9/9a/Gusteau.jpg/revision/latest?cb=20210318215933")
+user2.photo.attach(io: file2, filename: "profile.png", content_type: "image/png")
+
+file3 = URI.open("https://i.pinimg.com/originals/eb/bf/28/ebbf28303696dd50ccc1a9738bd90556.jpg")
+user3.photo.attach(io: file3, filename: "profile.png", content_type: "image/png")
+
+file4 = URI.open("https://64.media.tumblr.com/6626ec4732ac344b8c6e9468afade21a/6c2aed3bca1f580c-df/s1280x1920/bea0acafba44f135fed9032e8f78eba50049d76a.jpg")
+user4.photo.attach(io: file4, filename: "profile.png", content_type: "image/png")
+
+file5 = URI.open("https://media.licdn.com/dms/image/C5612AQEtaPzav6ILVg/article-inline_image-shrink_400_744/0/1593135096999?e=1698883200&v=beta&t=M7kBt18GR00QDauBxL_QtfQUFJ-J2Rm0jIYW-Fv4HB4")
+user5.photo.attach(io: file5, filename: "profile.png", content_type: "image/png")
 
 p "Seeding Recipes..."
 recipes1 = Recipe.create(
@@ -46,9 +62,13 @@ recipe3 = Recipe.create(
   caption:"My specialty",
   user: user1)
 
-recipe4 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
-recipe5 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
+# recipe4 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
+# recipe5 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
 
 p "Seeding Meals..."
+
+meal1 = Meal.create(title: "Ratatouille", restaurant:"Gusteau's", caption: "Check it out!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
+file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
+meal1.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
 
 p "Seeding complete!"
