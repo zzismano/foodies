@@ -1,0 +1,11 @@
+<%= form_with model: @recipe do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :ingredients %>
+  <%= f.text_field :ingredients %>
+   <%= f.label :instructions %>
+  <%= f.text_field :instructions %>
+  <%= f.label :caption %>
+  <%= f.text_field  :caption%>
+  <%= f.submit %>
+<% end %>

@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :users, only: %i[show]
+  resources :recipes
+  resouces :meals
 
 end
