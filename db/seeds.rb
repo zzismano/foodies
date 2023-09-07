@@ -11,7 +11,7 @@ User.destroy_all
 Recipe.destroy_all
 Meal.destroy_all
 
-p "Seeding users..."
+p "Seeding Users..."
 user1 = User.create!(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
 user2 = User.create!(username: "Gusteau", first_name: "Gusteau", last_name: "Garrett", city: "Paris", country: "France", age: 132, email: "master_chef@foodies.go", password: "654321")
 user3 = User.create!(username: "Linguini", first_name: "Linguini", last_name: "Romano", city: "Paris", country: "France", age: 22, email: "pasta_chef@foodies.go", password: "123654")
@@ -43,8 +43,8 @@ recipe1 = Recipe.create!(
   user: user1)
 
 
-file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
-recipe1.photo.attach(io: file1, filename: "recipe_post.png", content_type: "image/png")
+file1 = URI.open("https://www.receiteria.com.br/receitas-com-file-mignon/")
+recipe1.photos.attach(io: file1, filename: "recipe_post.png", content_type: "image/png")
 
 recipe2 = Recipe.create!(
   title:"Romeo and Juliet Cheesecake",
@@ -62,7 +62,7 @@ recipe2 = Recipe.create!(
 
 
 file2 = URI.open("https://www.daninoce.com.br/wp-content/uploads/2017/09/cheesecake-romeu-e-julieta-1.png")
-recipe2.photo.attach(io: file2, filename: "recipe_post.png", content_type: "image/png")
+recipe2.photos.attach(io: file2, filename: "recipe_post.png", content_type: "image/png")
 
 
 recipe3 = Recipe.create!(
@@ -73,7 +73,7 @@ recipe3 = Recipe.create!(
   user: user1)
 
 file3 = URI.open("https://assets.unileversolutions.com/recipes-v2/181044.jpg?imwidth=1600")
-recipe3.photo.attach(io: file3, filename: "recipe_post.png", content_type: "image/png")
+recipe3.photos.attach(io: file3, filename: "recipe_post.png", content_type: "image/png")
 
 # recipe4 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
 
@@ -84,7 +84,7 @@ meal1 = Meal.create!(title: "Ratatouille", restaurant:"Gusteau's", caption: "Che
 meal2 = Meal.create!(title: "Leak and Potato Soup", restaurant:"Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
 
 
-file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
+file1 = URI.open("https://i.ytimg.com/vi/8a51lQaKg4w/maxresdefault.jpg")
 meal1.photo.attach(io: file1, filename: "post.png", content_type: "image/png")
 
 file2 = URI.open("https://food-images.files.bbci.co.uk/food/recipes/leekandpotatosoup_1920_16x9.jpg")
