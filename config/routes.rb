@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :meals
     resources :recipe
   end
+  resources :friendships
+  resources :comments
 
 end
