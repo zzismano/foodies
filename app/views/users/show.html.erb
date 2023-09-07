@@ -22,7 +22,7 @@ CARD FEED
 
         <div id="header d-flex justify-content-start" class="card-title">
 
-          <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="meal" class="avatar">
+          <%= cl_image_tag meal.user.photo.key,  class: "avatar" %>
           <span>  <%= meal.user.username %> </span>
 
 
@@ -31,7 +31,7 @@ CARD FEED
 
         <div id="user_image" class="card-body">
 
-          <img class="card-img-top" src="https://www.allrecipes.com/thmb/F1rucOY3FQT5Ic0oyxdLoqU_yKc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg" alt="meal_photo">
+          <%= cl_image_tag meal.photo.key,  class: "card-img-top" %>
 
         </div>
 
