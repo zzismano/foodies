@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     authorize @user
     @user_meals = @user.meals
     @user_recipes = @user.recipes
+    @comment = Comment.new
   end
 
   def index

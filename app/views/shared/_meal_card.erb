@@ -9,17 +9,23 @@
         </div>
 
         <div id="user_image" class="card-body">
-          <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top" %>
+          <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3 mb-3 " %>
         </div>
 
-        <div id="actions, d-flex justify-content">
-          <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-comment"></i>
-          <i class="fa-solid fa-share"></i>
+        <div data-controller="click-icon" id="actions, d-flex justify-content mt-3 mb-3 p-3">
+          <i class="fa-solid fa-heart fa-2xl" data-action="click->click#toggleHeart"></i>
+          <i class="fa-solid fa-comment fa-2xl" data-action="click->click-icon#createComment"></i>
+
+          <i class="fa-solid fa-share fa-2xl" data-action="click->click-icon#handleShare"></i>
         </div>
 
-        <div id="comments">
-          <p> class="card-text" </p>
+        <div id="comments" class="" >
+          <%= form_for @comment do |f| %>
+            <%= f.hidden_field :commentable_id, value: params[:id] %>
+            <%= f.hidden_field :commentable_type, value: "Meal" %>
+            <p>Comment: <%= f.text_area :content %></p>
+            <%= f.submit %>
+          <% end %>
         </div>
 
     </div>
