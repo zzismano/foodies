@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_143217) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_180505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,10 +53,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_143217) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  # create_table "feeds", force: :cascade do |t|
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  # end
+  create_table "followability_relationships", force: :cascade do |t|
+    t.string "followerable_type", null: false
+    t.bigint "followerable_id", null: false
+    t.string "followable_type", null: false
+    t.bigint "followable_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followable_type", "followable_id"], name: "index_followability_relationships_on_followable"
+    t.index ["followerable_type", "followerable_id"], name: "index_followability_relationships_on_followerable"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.bigint "asker_id"

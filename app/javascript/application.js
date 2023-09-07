@@ -3,3 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+import AddFriendController from "./controllers/add_friend.js"
+Stimulus.register('add-friend', AddFriendController)

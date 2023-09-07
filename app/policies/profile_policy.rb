@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -29,4 +29,5 @@ class UserPolicy < ApplicationPolicy
   def cancel?
     true
   end
+
 end
