@@ -6,7 +6,16 @@ class User < ApplicationRecord
   has_many :comments
   has_many :meals
   has_many :recipes
-  has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id
-  has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+  # has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id
+  # has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+  # has_many :friendships, ->(user) { where("asker_id = ? OR receiver_id = ?", user.id, user.id) }
+  # has_many :friendships, dependent: :destroy
+  # has_many :receivers, through: :friendships
+  # has_many :askers, through: :friendships
   has_one_attached :photo
+  followability
+
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
 end

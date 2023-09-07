@@ -4,6 +4,10 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 
+import AddFriendController from "./controllers/add_friend.js"
+Stimulus.register('add-friend', AddFriendController)
+
+
 
 const ShowRecipes = document.querySelector(".recipes-filter");
 
@@ -24,3 +28,4 @@ ShowMeals.addEventListener('click', () => {
 const mealsList = document.querySelector(".meals");
 
 const recipesList = document.querySelector(".recipes");
+
