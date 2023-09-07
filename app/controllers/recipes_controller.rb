@@ -6,11 +6,14 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @user = User.find(params[:user_id])
+    authorize @recipe
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
+    authorize @recipe
     if @recipe.save
       redirect_to user_path(@recipe.user), notice: "Recipe was successfully created"
     else

@@ -1,2 +1,10 @@
 <h1 id="logo">Foodies</h1>
 <p>Eat your friends!</p>
+
+<% @posts.each do |post| %>
+  <%if post.instance_of? Recipe %>
+      <%= post.title %>
+  <% elsif post.instance_of? Meal %>
+      <%= post.restaurant %>
+  <% end %>
+<% end %>

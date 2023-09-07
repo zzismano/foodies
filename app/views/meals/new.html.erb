@@ -1,9 +1,9 @@
-<%= form_with model: @meal do |f| %>
+<%= simple_form_for([@user, @meal]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :restaurants %>
-  <%= f.text_field :restaurants %>
+  <%= f.label :restaurant %>
+  <%= f.text_field :restaurant %>
   <%= f.label :caption %>
-  <%= f.label :caption%>
+  <%= f.text_field :caption%>
   <%= f.submit %>
 <% end %>
