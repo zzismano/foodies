@@ -1,26 +1,22 @@
- <% @user_meals.each do |meal| %>
+<div>
+  <% @user_meals.each do |meal| %>
     <div  class="container mt-3 mb-3"  style="padding: initial" >
       <div class="card-body">
-
-
         <div id="header d-flex justify-content-start opacity-0" class="card-title" >
           <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="meal" class="avatar">
           <span>  <%= meal.user.username %> </span>
         </div>
-
         <div id="user_image" class="card-body">
           <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top" %>
         </div>
-
         <div id="actions, d-flex justify-content">
           <i class="fa-solid fa-heart"></i>
           <i class="fa-solid fa-comment"></i>
           <i class="fa-solid fa-share"></i>
         </div>
-
         <div id="comments">
           <p> class="card-text" </p>
         </div>
-
     </div>
   <% end %>
+</div>

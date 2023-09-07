@@ -11,6 +11,7 @@ class MealsController < ApplicationController
   def create
     #doesn't need a view page
     @meal = Meal.find(params[:meal_id])
+    @meal.user = current_user
     if @meal.save
       # need to change path to index
       redirect_to meal_path(@meal), notice: "Meal post was successfully created"
@@ -30,7 +31,7 @@ class MealsController < ApplicationController
 private
 
   def meal_params
-    params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long, :user_id)
+    params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long)
   end
 
 end

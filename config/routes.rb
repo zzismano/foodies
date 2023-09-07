@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :friendships
   resources :comments
 
+  get "create", to: "users#create_post", as: "create_post"
 end
