@@ -43,7 +43,8 @@ recipe1 = Recipe.create!(
   user: user1)
 
 
-file1 = URI.open("https://www.receiteria.com.br/receitas-com-file-mignon/")
+
+file1 = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/02/Filet-Mignon-main.jpg")
 recipe1.photos.attach(io: file1, filename: "recipe_post.png", content_type: "image/png")
 
 recipe2 = Recipe.create!(
@@ -82,6 +83,7 @@ p "Seeding Meals..."
 
 meal1 = Meal.create!(title: "Ratatouille", restaurant:"Gusteau's", caption: "Check it out!", lat: "48.87085038918666", long: "2.343018048001365", user: user1)
 meal2 = Meal.create!(title: "Leak and Potato Soup", restaurant:"Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
+meal3 = Meal.create!(title: "Chicken", restaurant:"Gusteau's", caption: "Delightful", lat: "48.87085038918666", long: "2.343018048001365", user: user1)
 
 
 file1 = URI.open("https://i.ytimg.com/vi/8a51lQaKg4w/maxresdefault.jpg")
@@ -89,6 +91,9 @@ meal1.photo.attach(io: file1, filename: "post.png", content_type: "image/png")
 
 file2 = URI.open("https://food-images.files.bbci.co.uk/food/recipes/leekandpotatosoup_1920_16x9.jpg")
 meal2.photo.attach(io: file2, filename: "post.png", content_type: "image/png")
+
+file3 = URI.open("https://www.eatingwell.com/thmb/O0rxCl7gJhIbmH-_unoCvP1CtAw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1501p108-weeknight-lemon-chicken-skillet-dinner-8030728-4x3-1-2000-b74e47f2bfd64b7fb6ca174ce7313ac6.jpg")
+meal3.photo.attach(io: file3, filename: "post.png", content_type: "image/png")
 
 # meal3 = Meal.create(title: "", restaurant:"", caption: "", lat: "", long: "", user:)
 
