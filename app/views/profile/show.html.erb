@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="container d-flex flex-column justify-content-center align-items-center" data-controller="add-friend">
+   <!--
+    <img src="https://hips.hearstapps.com/hmg-prod/images/gordon-ramsay-646367718a5f4.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="avatar" class="rounded-circle mb-3">
+    <h1>GordonBoy</h1>
+    -->
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle mb-3" %>
+    <h1><%= @user.username %></h1>
+    <% if current_user.following?(@user) %>
+      <%= button_to "Unfollow", unfollow_path(@user) %>
+    <% elsif current_user.sent_follow_request_to?(@user)%>
+      <%= button_to "Cancel follow request", cancel_path(@user) %>
+    <% else %>
+      <%= button_to "Follow",  follow_path(@user) %>
+    <% end %>
+    <%# <%= button_to "Add as a friend!", { :controller => "friendships", :action => "create", :user_id => @user.id },  remote: true, class: "btn btn-primary" %>
+  </div>
+  <br />
+    <% current_user.follow_requests.each do |request| %>
+      <%= request.followerable.email %> wants to follow you
+      <%= button_to "Accept", accept_path(request.followerable) %>
+      <%= button_to "Decline", decline_path(request.followerable) %>
+    <% end %>
+  <hr />
+    <% current_user.followers.each do |user| %>
+      <%= link_to user.email, profile_path(user) %> is following you
+      <%= button_to "Unfollow", unfollow_path(user) %>
+    <% end %>
+  <div class="d-flex">
+    <button class="button-filter">Recipes</button>
+    <button class="button-filter">meals</button>
+  </div>

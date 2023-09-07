@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.meal = @comment
+
     @comment.save
     redirect_to meal_path(@meal)
 
@@ -29,10 +30,13 @@ class CommentsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
   end
 
-  def comment_params
-    params.require(:recipe).permit(:content)
+  def recipe_comment_params
+    params.require(:recipe).permit(:content, :commentable_id, :commentable_type)
   end
 
+  def meal_comment_params
+    params.require(:meal).permit(:content, :commentable_id, :commentable_type)
+  end
 
   def destroy
     @review = Review.find(params[:id])

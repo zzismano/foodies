@@ -1,15 +1,36 @@
+
 <div class="">
   <div class="d-flex flex-column justify-content-center align-items-center">
+
+
    <!--
     <img src="https://hips.hearstapps.com/hmg-prod/images/gordon-ramsay-646367718a5f4.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="avatar" class="rounded-circle mb-3">
     <h1>GordonBoy</h1>
     -->
     <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle mb-3" %>
     <h1><%= @user.username %></h1>
+    <%= button_to "Add as a friend!", { :controller => "friendships", :action => "create", :user_id => @user.id },  remote: true, class: "btn btn-primary" %>
   </div>
-  <div class="container d-flex">
-    <button class="button-filter">Recipes</button>
-    <button class="button-filter">meals</button>
+
+  <div class="d-flex">
+    <button class="recipes-filter">Recipes</button>
+    <button class="meals-filter">Meals</button>
   </div>
-  <%= render "shared/meal_card" %>
-</div>
+
+
+  <div class="meals d-none">
+    <% @user_meals.each do |meal| %>
+    <% end %>
+  </div>
+
+  <div class="recipes">
+   <% @user_recipes.each do |recipe| %>
+    <%=recipe%>%
+   <% end %>
+  </div>
+  
+<!--
+CARD FEED
+-->
+ <%= render "shared/meal_card" %>
+
