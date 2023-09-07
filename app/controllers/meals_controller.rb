@@ -16,9 +16,9 @@ class MealsController < ApplicationController
 
   def create
     #doesn't need a view page
+    @meal.user = current_user
     @meal = Meal.new(meal_params)
-    @user = User.find(params[:user_id])
-    @meal.user = @user
+    
     authorize @meal
     if @meal.save
       # need to change path to index
@@ -39,7 +39,7 @@ class MealsController < ApplicationController
 private
 
   def meal_params
-    params.require(:meal).permit(:title, :restaurant, :caption)
+    params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long)
   end
 
 end

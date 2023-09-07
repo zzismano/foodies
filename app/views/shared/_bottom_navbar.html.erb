@@ -1,7 +1,23 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon bottom-navbar">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <h1 id="logo">Foodies</h1>
+<div class="footer footer-foodies footer-collapse bottom-navbar">
+  <div class="container d-flex justify-content-between">
+    <%= link_to root_path, class: "my-3" do %>
+      <i class="fa-solid fa-house fa-xl" style="color: #d0a77a"></i>
+    <% end %>
+
+    <%= link_to create_post_path, class: "my-3" do %>
+      <i class="fa-regular fa-square-plus fa-xl" style="color: #d0a77a"></i>
+    <% end %>
+
+    <%= link_to user_path(current_user), class: "my-3" do %>
+      <i class="fa-solid fa-user fa-xl" style="color: #d0a77a"></i>
     <% end %>
   </div>
 </div>
+
+
+<!--
+    <%= link_to root_path, class: "my-3" do %>
+    <% end %>
+    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
+      Popover on top
+    </button>
