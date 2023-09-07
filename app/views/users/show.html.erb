@@ -12,36 +12,9 @@
     <button class="meals-filter">Meals</button>
   </div>
 
+
   <div class="meals d-none">
     <% @user_meals.each do |meal| %>
-    <div class="container">
-      <div class="card" style="col-12">
-
-
-        <div id="header d-flex justify-content-start" class="card-title">
-
-          <%= cl_image_tag meal.user.photo.key,  class: "avatar" %>
-          <span>  <%= meal.user.username %> </span>
-
-
-
-        </div>
-
-        <div id="user_image" class="card-body">
-
-          <%= cl_image_tag meal.photo.key,  class: "card-img-top" %>
-
-        </div>
-
-
-
-        <div id="actions">
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-
-        <div id="comments">
-
-    </div>
     <% end %>
   </div>
 
@@ -49,6 +22,9 @@
    <% @user_recipes.each do |recipe| %>
     <%=recipe%>%
    <% end %>
-
-
   </div>
+  
+<!--
+CARD FEED
+-->
+ <%= render "shared/meal_card" %>
