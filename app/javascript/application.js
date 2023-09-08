@@ -9,7 +9,12 @@ Stimulus.register('add-friend', AddFriendController)
 import PostsCreatorController from "./controllers/posts_creator_controller.js"
 Stimulus.register("disable-button", PostsCreatorController)
 
+
 // Ariel \/
+
+import ClickIconController from "./controllers/click_icon_controller.js"
+Stimulus.register("click-icon", ClickIconController)
+
 const ShowRecipes = document.querySelector(".recipes-filter");
 
 ShowRecipes.addEventListener('click', () => {
@@ -27,4 +32,6 @@ ShowMeals.addEventListener('click', () => {
 
 
 const mealsList = document.querySelector(".meals");
-const recipesList = document.querySelector(".recipes");
+
+
+const recipesList = document.querySelector("#recipes");
