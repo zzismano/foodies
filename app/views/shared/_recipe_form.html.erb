@@ -1,0 +1,7 @@
+<%= simple_form_for ([current_user, @recipe]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :ingredients %>
+  <%= f.input :instructions %>
+  <%= f.input :caption %>
+  <%= f.submit %>
+<% end %>
