@@ -30,5 +30,8 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def create_post?
+    true
+  end
 
 end

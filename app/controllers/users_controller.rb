@@ -11,8 +11,11 @@ class UsersController < ApplicationController
 
   end
 
-
-
+  def create_post
+    authorize current_user
+    @meal = Meal.new
+    @recipe = Recipe.new
+  end
 
   def set_user
     @user = current_user

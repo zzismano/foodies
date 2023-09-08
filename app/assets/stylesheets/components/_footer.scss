@@ -1,14 +1,10 @@
-.navbar-lewagon {
+.footer-foodies {
   justify-content: space-between;
-  background: $teal;
+  background: $brown;
 }
 
-.navbar-lewagon .navbar-collapse {
+.footer-foodies .footer-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 30px;
 }
 
 #logo {
@@ -21,4 +17,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.tan-tag {
+  color: $tan;
 }
