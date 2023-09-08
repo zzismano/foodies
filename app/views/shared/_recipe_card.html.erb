@@ -1,8 +1,7 @@
- <% @user_recipes.each do |recipe| %>
+ <div>
+  <% @user_recipes.each do |recipe| %>
     <div  class="container mt-3 mb-3"  style="padding: initial" >
       <div class="card-body">
-
-
         <div id="header d-flex justify-content-start opacity-0" class="card-title" >
           <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="user" class="avatar">
           <span>  <%= recipe.user.username %> </span>
@@ -21,22 +20,28 @@
           <p> <strong>Instructions:</strong>  <%= recipe.instructions %></p>
         </div>
 
-        <div data-controller="click-icon" id="actions, d-flex justify-content mt-3 mb-3 p-3">
+        <div data-controller="click-icon" >
           <i class="fa-regular fa-heart fa-2xl" data-action="click->click#toggleHeart"></i>
           <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#createComment"></i>
           <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
+
+          <div id="comments" class="d-none" data-click-icon-target="comment" >
+            <%= form_for @comment do |f| %>
+              <%= f.hidden_field :commentable_id, value: params[:id] %>
+              <%= f.hidden_field :commentable_type, value: "Recipe" %>
+              <p>Comment: <%= f.text_area :content %></p>
+              <%= f.submit %>
+            <% end %>
+          </div>
+
+          <div>
+            <% recipe.comments.each do |comment| %>
+              <%= comment.content %>
+            <% end %>
+          </div>
+
         </div>
-
-
-
-        <div id="comments" class="" >
-          <%= form_for @comment do |f| %>
-            <%= f.hidden_field :commentable_id, value: params[:id] %>
-            <%= f.hidden_field :commentable_type, value: "Recipe" %>
-            <p>Comment: <%= f.text_area :content %></p>
-            <%= f.submit %>
-          <% end %>
-        </div>
-
+      </div>
     </div>
   <% end %>
+</div>
