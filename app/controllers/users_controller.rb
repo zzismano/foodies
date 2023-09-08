@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     authorize @user
     @user_meals = @user.meals
-    @user_recipes = @user.recipes
+    @user_recipes = Recipe.where(user: current_user).order(created_at: :desc)
     @comment = Comment.new
   end
 
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end

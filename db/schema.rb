@@ -53,11 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_180505) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "feeds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "followability_relationships", force: :cascade do |t|
     t.string "followerable_type", null: false
     t.bigint "followerable_id", null: false

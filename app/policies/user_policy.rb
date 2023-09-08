@@ -33,4 +33,5 @@ class UserPolicy < ApplicationPolicy
   def create_post?
     true
   end
+
 end

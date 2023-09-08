@@ -11,17 +11,19 @@ class CommentsController < ApplicationController
 
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.meal = @comment
-
-    @comment.save
-    redirect_to meal_path(@meal)
-
-    @comment = Comment.new(comment_params)
-    @comment.recipe = @comment
-    @comment.save
-    redirect_to recipe_path(@recipe)
-
+    if params[:comment][:commentable_type] == "Meal"
+      @comment = Comment.new(meal_comment_params)
+      @comment.user = current_user
+      authorize @comment
+      @comment.save
+      redirect_to user_path(current_user)
+    else
+      @comment = Comment.new(recipe_comment_params)
+      @comment.user = current_user
+      authorize @comment
+      @comment.save
+      redirect_to user_path(current_user)
+    end
   end
 
   private
@@ -35,7 +37,7 @@ class CommentsController < ApplicationController
   end
 
   def meal_comment_params
-    params.require(:meal).permit(:content, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:content, :commentable_id, :commentable_type)
   end
 
   def destroy
@@ -43,7 +45,5 @@ class CommentsController < ApplicationController
     @review.destroy
     redirect_to meal_path(@review.meal), status: :see_other
   end
-
-
 
 end
