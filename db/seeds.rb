@@ -18,7 +18,7 @@ user3 = User.create!(username: "Linguini", first_name: "Linguini", last_name: "R
 user4 = User.create!(username: "Colette", first_name: "Colette", last_name: "Garofalo", city: "Paris", country: "France", age: 23, email: "victory_chef@foodies.go", password: "654123")
 user5 = User.create!(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
 
-file1 = URI.open("https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg")
+file1 = URI.open("https://w7.pngwing.com/pngs/771/131/png-transparent-ratatouille-hollywood-ratatouille-film-pixar-the-walt-disney-company-rat-mammal-animals-cooking-thumbnail.png")
 user1.photo.attach(io: file1, filename: "#{user1.username}profile.png", content_type: "image/png")
 
 file2 = URI.open("https://static.wikia.nocookie.net/movies157/images/9/9a/Gusteau.jpg/revision/latest?cb=20210318215933")
