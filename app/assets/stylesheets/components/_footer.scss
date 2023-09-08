@@ -1,6 +1,6 @@
 .footer-foodies {
   justify-content: space-between;
-  background: rgb(100, 71, 37);
+  background: $brown;
 }
 
 .footer-foodies .footer-collapse {
@@ -17,4 +17,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.tan-tag {
+  color: $tan;
 }

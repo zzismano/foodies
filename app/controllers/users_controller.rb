@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create_post
-    authorize @user
+    authorize current_user
     @meal = Meal.new
     @recipe = Recipe.new
   end
