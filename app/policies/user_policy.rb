@@ -29,4 +29,6 @@ class UserPolicy < ApplicationPolicy
   def cancel?
     true
   end
+
+
 end

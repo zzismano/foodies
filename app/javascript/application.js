@@ -7,7 +7,8 @@ import "bootstrap"
 import AddFriendController from "./controllers/add_friend.js"
 Stimulus.register('add-friend', AddFriendController)
 
-
+import ClickIconController from "./controllers/click_icon_controller.js"
+Stimulus.register("click-icon", ClickIconController)
 
 const ShowRecipes = document.querySelector(".recipes-filter");
 
@@ -27,5 +28,4 @@ ShowMeals.addEventListener('click', () => {
 
 const mealsList = document.querySelector(".meals");
 
-const recipesList = document.querySelector(".recipes");
-
+const recipesList = document.querySelector("#recipes");

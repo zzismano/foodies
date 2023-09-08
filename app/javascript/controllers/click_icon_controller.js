@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="click-icon"
 export default class extends Controller {
-  static targets = ["heart", "comment", "share"]
+  static targets = ["heart", "comment", "share", "comment-icon"]
   connect() {
     // console.log("hello from the controller");
   }
@@ -22,12 +22,16 @@ export default class extends Controller {
     .then(data => {
       console.log('Comment created:', data);})
   }
+
+  showComment() {
+    this.commentTarget.classList.toggle("d-none")
+  }
 }
 
-  toggleHeart() {
+//   toggleHeart() {
 
-}
+// }
 
-  handleShare() {
+//   handleShare() {
 
-}
+// }
