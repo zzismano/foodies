@@ -16,13 +16,14 @@ class MealsController < ApplicationController
 
   def create
     #doesn't need a view page
-    @meal.user = current_user
     @meal = Meal.new(meal_params)
-    
+    @meal.user = current_user
+
     authorize @meal
+    authorize current_user
     if @meal.save
       # need to change path to index
-      redirect_to user_meal_path(current_user, @meal), notice: "Meal post was successfully created"
+      redirect_to root_path, notice: "Meal post was successfully created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,7 +40,7 @@ class MealsController < ApplicationController
 private
 
   def meal_params
-    params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long)
+    params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long, :photo)
   end
 
 end
