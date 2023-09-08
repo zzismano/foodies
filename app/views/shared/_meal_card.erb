@@ -28,14 +28,12 @@
               <p>Comment: <%= f.text_area :content %></p>
               <%= f.submit %>
             <% end %>
-
             <% meal.comments.each do |comment| %>
               <%= comment.content %>
             <% end %>
           </div>
         </div>
       </div>
-
     </div>
   <% end %>
 </div>
