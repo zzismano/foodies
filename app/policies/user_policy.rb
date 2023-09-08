@@ -29,4 +29,8 @@ class UserPolicy < ApplicationPolicy
   def cancel?
     true
   end
+
+  def create_post?
+    true
+  end
 end
