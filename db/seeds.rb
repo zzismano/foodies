@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 p "Cleaning database"
-User.destroy_all
 Recipe.destroy_all
 Meal.destroy_all
+User.destroy_all
 
 p "Seeding Users..."
 user1 = User.create!(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")

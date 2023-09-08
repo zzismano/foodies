@@ -1,17 +1,21 @@
-<div class>
+<div class data-controller="posts-creator">
   <div class="radio-inputs w-100 mb-3">
     <label class="radio">
       <input type="radio" name="radio" checked="">
-      <span class="name">Restaurant</span>
+      <span class="name" data-action="click->posts-creator#toggleForm">Recipe</span>
     </label>
     <label class="radio">
       <input type="radio" name="radio">
-      <span class="name">Meal</span>
+      <span class="name" data-action="click->posts-creator#toggleForm">Meal</span>
     </label>
   </div>
 
   <div class="container">
-    <%= render "shared/meal_form" %>
-    <%= render "shared/recipe_form" %>
+    <div class="d-none" id="form" data-posts-creator-target="mealForm">
+      <%= render "shared/meal_form" %>
+    </div>
+    <div class="" id="form" data-posts-creator-target="recipeForm">
+      <%= render "shared/recipe_form" %>
+    </div>
   </div>
 </div>
