@@ -44,8 +44,8 @@ recipe1 = Recipe.create!(
 
 
 
-file1 = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/02/Filet-Mignon-main.jpg")
-recipe1.photos.attach(io: file1, filename: "recipe_post.png", content_type: "image/png")
+file1 = URI.open("https://www.wholesomeyum.com/wp-content/uploads/2022/01/wholesomeyum-Air-Fryer-Filet-Mignon-Recipe-4.jpg")
+recipe1.photos.attach([io: file1, filename: "recipe_post.png", content_type: "image/png"])
 
 recipe2 = Recipe.create!(
   title:"Romeo and Juliet Cheesecake",
@@ -63,7 +63,7 @@ recipe2 = Recipe.create!(
 
 
 file2 = URI.open("https://www.daninoce.com.br/wp-content/uploads/2017/09/cheesecake-romeu-e-julieta-1.png")
-recipe2.photos.attach(io: file2, filename: "recipe_post.png", content_type: "image/png")
+recipe2.photos.attach([io: file2, filename: "recipe_post.png", content_type: "image/png"])
 
 
 recipe3 = Recipe.create!(
@@ -74,7 +74,7 @@ recipe3 = Recipe.create!(
   user: user1)
 
 file3 = URI.open("https://assets.unileversolutions.com/recipes-v2/181044.jpg?imwidth=1600")
-recipe3.photos.attach(io: file3, filename: "recipe_post.png", content_type: "image/png")
+recipe3.photos.attach([io: file3, filename: "recipe_post.png", content_type: "image/png"])
 
 # recipe4 = Recipe.create(title:"", ingredients:"", instructions:"", caption:"", user:"")
 
