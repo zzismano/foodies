@@ -1,13 +1,18 @@
 
-<div class="container">
+<div class="container" data-controller="posts-creator">
  <%= render "shared/logo" %>
  <img src="assets/images/logo.png" alt="logo">
   <p>Eat your friends!</p>
+  <%= render "shared/toggle_switch" %>
   <% @posts.each do |post| %>
     <%if post.instance_of? Recipe %>
-        <%= post.title %>
+      <div id="recipeCard" data-posts-creator-target="mealTag">
+        <%= render "shared/meal_card", recipe: post %>
+      </div>
     <% elsif post.instance_of? Meal %>
-        <%= post.restaurant %>
+      <div id="mealCard" data-posts-creator-target="recipeTag">
+        <%= render "shared/recipe_card", meal: post %>
+      </div>
     <% end %>
   <% end %>
 </div>
