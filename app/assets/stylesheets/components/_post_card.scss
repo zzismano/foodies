@@ -9,6 +9,25 @@
 	margin: auto;
 }
 
-.liked {
+.red-heart {
   color: red; /* Change the color when liked */
+}
+
+.fa-heart-solid {
+  color: red; /* Change the color when liked */
+}
+
+.hidden {
+  display: none;
+}
+
+.card-header{
+	padding: 10px;
+	height: 100px;
+}
+.circular-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  vertical-align: middle;
 }

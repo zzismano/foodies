@@ -20,19 +20,19 @@ user4 = User.new(username: "Colette", first_name: "Colette", last_name: "Garofal
 user5 = User.new(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
 
 file1 = URI.open("https://i.pinimg.com/originals/eb/bf/28/ebbf28303696dd50ccc1a9738bd90556.jpg")
-user1.photo.attach(io: file1, filename: "#{user1.username}profile.png", content_type: "image/png")
+user1.photo.attach(io: file1, filename: "#{user1.username}profile.jpg", content_type: "image/jpg")
 
 file2 = URI.open("https://static.wikia.nocookie.net/movies157/images/9/9a/Gusteau.jpg/revision/latest?cb=20210318215933")
-user2.photo.attach(io: file2, filename: "profile.png", content_type: "image/png")
+user2.photo.attach(io: file2, filename: "profile.jpg", content_type: "image/jpg")
 
 file3 = URI.open("https://i.pinimg.com/originals/eb/bf/28/ebbf28303696dd50ccc1a9738bd90556.jpg")
-user3.photo.attach(io: file3, filename: "profile.png", content_type: "image/png")
+user3.photo.attach(io: file3, filename: "profile.jpg", content_type: "image/jpg")
 
 file4 = URI.open("https://64.media.tumblr.com/6626ec4732ac344b8c6e9468afade21a/6c2aed3bca1f580c-df/s1280x1920/bea0acafba44f135fed9032e8f78eba50049d76a.jpg")
-user4.photo.attach(io: file4, filename: "profile.png", content_type: "image/png")
+user4.photo.attach(io: file4, filename: "profile.jpg", content_type: "image/jpg")
 
 file5 = URI.open("https://media.licdn.com/dms/image/C5612AQEtaPzav6ILVg/article-inline_image-shrink_400_744/0/1593135096999?e=1698883200&v=beta&t=M7kBt18GR00QDauBxL_QtfQUFJ-J2Rm0jIYW-Fv4HB4")
-user5.photo.attach(io: file5, filename: "profile.png", content_type: "image/png")
+user5.photo.attach(io: file5, filename: "profile.jpg", content_type: "image/jpg")
 
 user1.save!
 user2.save!
@@ -52,7 +52,7 @@ recipe1 = Recipe.new(
 
 
 file1 = URI.open("https://www.wholesomeyum.com/wp-content/uploads/2022/01/wholesomeyum-Air-Fryer-Filet-Mignon-Recipe-4.jpg")
-recipe1.photos.attach([io: file1, filename: "recipe_post.png", content_type: "image/png"])
+recipe1.photos.attach([io: file1, filename: "recipe_post.jpg", content_type: "image/jpg"])
 
 recipe2 = Recipe.new(
   title:"Romeo and Juliet Cheesecake",
@@ -81,7 +81,7 @@ recipe3 = Recipe.new(
   user: user1)
 
 file3 = URI.open("https://assets.unileversolutions.com/recipes-v2/181044.jpg?imwidth=1600")
-recipe3.photos.attach([io: file3, filename: "recipe_post.png", content_type: "image/png"])
+recipe3.photos.attach([io: file3, filename: "recipe_post.jpg", content_type: "image/jpg"])
 
 recipe1.save!
 recipe2.save!
@@ -97,13 +97,13 @@ meal3 = Meal.new(title: "Chicken", restaurant:"Gusteau's", caption: "Delightful"
 
 
 file1 = URI.open("https://i.ytimg.com/vi/8a51lQaKg4w/maxresdefault.jpg")
-meal1.photo.attach(io: file1, filename: "post.png", content_type: "image/png")
+meal1.photo.attach(io: file1, filename: "post.jpg", content_type: "image/jpg")
 
 file2 = URI.open("https://food-images.files.bbci.co.uk/food/recipes/leekandpotatosoup_1920_16x9.jpg")
-meal2.photo.attach(io: file2, filename: "post.png", content_type: "image/png")
+meal2.photo.attach(io: file2, filename: "post.jpg", content_type: "image/jpg")
 
 file3 = URI.open("https://www.eatingwell.com/thmb/O0rxCl7gJhIbmH-_unoCvP1CtAw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1501p108-weeknight-lemon-chicken-skillet-dinner-8030728-4x3-1-2000-b74e47f2bfd64b7fb6ca174ce7313ac6.jpg")
-meal3.photo.attach(io: file3, filename: "post.png", content_type: "image/png")
+meal3.photo.attach(io: file3, filename: "post.jpg", content_type: "image/jpg")
 
 meal1.save!
 meal2.save!
