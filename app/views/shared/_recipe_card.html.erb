@@ -21,18 +21,21 @@
 
     <div>
       <i class="fa-regular fa-heart fa-2xl" data-action="click->click#toggleHeart"></i>
-      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#createComment"></i>
+      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment"></i>
       <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
+      <%= content_tag(:p, "", class:"result", data: {share_target: "result"}) %>
 
-      <div id="show-comments" class="">
-        <ul data-click-icon-target="list" style="list-style-type: none;">
-          <% recipe.comments.each do |comment| %>
-              <li> <%=cl_image_tag comment.user.photo.key,  class: "avatar"%> <strong><%=comment.user.username%></strong> </li>
-              <li style="margin-left: 50px;"><%= comment.content %></li>
-          <% end %>
-        </ul>
+      <div id="comments" class="d-none" data-click-icon-target="comment">
+
+
+        <div id="show-comments" data-click-icon-target="show-comments" class="">
+          <ul data-click-icon-target="list" style="list-style-type: none;">
+            <% recipe.comments.each do |comment| %>
+                <%= render "shared/comment", comment: comment %>
+            <% end %>
+          </ul>
+        </div>
       </div>
-
     </div>
     <div>
       <%= render "shared/comment_form", meal: recipe, comment: @comment %>
