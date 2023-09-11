@@ -9,7 +9,7 @@
     <div id="user_image" class="card-body">
       <% recipe.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3 mb-3 " %>
-      <% end %>
+        <% end %>
     </div>
 
     <div id="title_of_recipe" >

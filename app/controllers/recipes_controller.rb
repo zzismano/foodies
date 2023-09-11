@@ -4,6 +4,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def show
+    authorize current_user
+    @recipe = Recipe.find(params[:id])
+    @comment = Comment.new
+  end
+
   def new
     @recipe = Recipe.new
     @user = User.find(params[:user_id])
@@ -14,6 +20,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     authorize @recipe
+    authorize current_user
     if @recipe.save
       redirect_to user_path(@recipe.user), notice: "Recipe was successfully created"
     else
