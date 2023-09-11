@@ -8,6 +8,7 @@
 
 p "Cleaning database"
 
+Comment.destroy_all
 Recipe.destroy_all
 Meal.destroy_all
 User.destroy_all

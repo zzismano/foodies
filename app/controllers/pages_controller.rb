@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @comment = Comment.new
     meals = Meal.all.order(created_at: :desc)
     recipes = Recipe.all.order(created_at: :desc)
     @posts = []
