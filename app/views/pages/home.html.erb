@@ -1,5 +1,7 @@
 
 <div class="container">
+ <%= render "shared/logo" %>
+ <img src="assets/images/logo.png" alt="logo">
   <p>Eat your friends!</p>
   <% @posts.each do |post| %>
     <%if post.instance_of? Recipe %>

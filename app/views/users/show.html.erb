@@ -1,10 +1,14 @@
 <div class="container">
-  <div class="container d-flex justify-content-center align-items-start">
-    <%= cl_image_tag @user.photo.key,  class: "avatar-large" %>
-    <h1><%= @user.username %></h1>
+  <div class="container d-flex align-items-start p-4">
+    <%= cl_image_tag @user.photo.key,  class: "circular-image" %>
+    <div class="card-header">
+      <h3><%= @user.username  %></h3>
+      <p> Eating in: <%= @user.city %>, <%= @user.country%></p>
+      <p> Maybe we need to a table column for a description </p>
+    </div>
   </div>
 
-  <div class="d-flex">
+  <div class="d-flex align-items-start mt-5">
     <button class="recipes-filter">Recipes</button>
     <button class="meals-filter">Meals</button>
   </div>
@@ -17,5 +21,4 @@
   <div id="recipes" class="d-none">
     <%= render "shared/recipe_card" %>
   </div>
-
-
+ </div>
