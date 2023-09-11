@@ -1,15 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon gradient">
   <div class="container-fluid justify-content-between">
     <%= link_to root_path, class: "navbar-brand" do %>
       <h1 id="logo">Foodies</h1>
     <% end %>
     <% if current_user %>
       <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-brand" do %>
-        <i class="fa-solid fa-arrow-right-from-bracket tan-tag"></i>
+        <i class="fa-solid fa-arrow-right-from-bracket teal-tag"></i>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path, class: "navbar-brand" do %>
-        <i class="fa-solid fa-arrow-right-to-bracket tan-tag"></i>
+        <i class="fa-solid fa-arrow-right-to-bracket teal-tag"></i>
       <% end %>
     <% end %>
   </div>

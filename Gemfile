@@ -83,3 +83,4 @@ group :test do
 end
 
 gem "followability", "~> 1.1"
+gem "geocoder"
