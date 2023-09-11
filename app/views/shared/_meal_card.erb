@@ -1,6 +1,6 @@
  <% @user_meals.each do |meal| %>
     <div  class="container mt-3 mb-3"  style="padding: initial" >
-      <div class="card-body">
+      <div data-controller="click-icon" class="card-body">
 
 
         <div id="header d-flex justify-content-start opacity-0" class="card-title" >
@@ -19,7 +19,7 @@
 
 
 
-        <div data-controller="click-icon" data-share-url-value="<%=  %>">
+        <div  data-share-url-value="<%=  %>">
           <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
           <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
           <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
@@ -27,7 +27,7 @@
 
           <div id="comments" class="d-none" data-click-icon-target="comment">
 
-            <button data-action="click->click-icon#toggle">Show all comments</button>
+
             <div id="show-comments" data-click-icon-target="show-comments" class="">
               <% meal.comments.each do |comment| %>
                 <ul style="list-style-type: none;">
@@ -39,16 +39,10 @@
 
         <div>
           <%= form_for @comment do |f| %>
-              <%= f.hidden_field :commentable_id, value: params[:id] %>
+              <%= f.hidden_field :commentable_id, value: meal.id %>
               <%= f.hidden_field :commentable_type, value: "Meal" %>
               <p>Comment: <%= f.text_area :content %></p>
               <%= f.submit %>
-            <% end %>
-          </div>
-
-          <div>
-            <% meal.comments.each do |comment| %>
-              <%= comment.content %>
             <% end %>
           </div>
         </div>
