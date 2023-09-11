@@ -1,15 +1,5 @@
 <div class data-controller="toggle-switch">
-  <div class="radio-inputs w-100 mb-3">
-    <label class="radio">
-      <input type="radio" name="radio" checked="">
-      <span class="name" data-action="click->toggle-switch#toggleForm">Recipe</span>
-    </label>
-    <label class="radio">
-      <input type="radio" name="radio">
-      <span class="name" data-action="click->toggle-switch#toggleForm">Meal</span>
-    </label>
-  </div>
-
+  <%= render "shared/toggle_switch" %>
   <div class="container">
     <div class="d-none" id="form" data-toggle-switch-target="mealTag">
       <%= render "shared/meal_form" %>
