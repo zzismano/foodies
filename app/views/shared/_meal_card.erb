@@ -1,51 +1,43 @@
-<% @user_meals.each do |meal| %>
-    <div  class="container mt-3 mb-3"  style="padding: initial" >
-      <div data-controller="click-icon" class="card-body">
+<div  class="container mt-3 mb-3"  style="padding: initial" >
+  <div data-controller="click-icon" class="card-body">
 
 
-        <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-          <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="user" class="avatar">
-          <span>  <%= meal.user.username %> </span>
-        </div>
+    <div id="header d-flex justify-content-start opacity-0" class="card-title" >
+      <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="user" class="avatar">
+      <span>  <%= meal.user.username %> </span>
+    </div>
 
-        <div id="user_image" class="card-body">
-          <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3 mb-3 " %>
-        </div>
+    <div id="user_image" class="card-body">
+      <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3 mb-3 " %>
+    </div>
 
-        <div  class="gradient" id="title_of_restaurant" >
-          <h5> <%= meal.title%> at <%= meal.restaurant %> </h5>
-          <p> <%= meal.caption %></p>
-        </div>
-
-
-
-        <div  data-share-url-value="<%=  %>">
-          <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
-          <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
-          <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
-          <%= content_tag(:p, "", class:"result", data: {share_target: "result"}) %>
-
-          <div id="comments" class="d-none" data-click-icon-target="comment">
+    <div  class="gradient" id="title_of_restaurant" >
+      <h5> <%= meal.title%> at <%= meal.restaurant %> </h5>
+      <p> <%= meal.caption %></p>
+    </div>
 
 
-            <div id="show-comments" data-click-icon-target="show-comments" class="">
-              <% meal.comments.each do |comment| %>
-                <ul style="list-style-type: none;">
-                  <li> <%=cl_image_tag comment.user.photo.key,  class: "avatar"%> <strong><%=comment.user.username%></strong> </li>
-                  <li style="margin-left: 50px;"><%= comment.content %></li>
-                </ul>
-              <% end %>
-          </div>
 
-        <div>
-          <%= form_for @comment do |f| %>
-              <%= f.hidden_field :commentable_id, value: meal.id %>
-              <%= f.hidden_field :commentable_type, value: "Meal" %>
-              <p>Comment: <%= f.text_area :content %></p>
-              <%= f.submit %>
+    <div  data-share-url-value="<%=  %>">
+      <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
+      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
+      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
+      <%= content_tag(:p, "", class:"result", data: {share_target: "result"}) %>
+
+      <div id="comments" class="d-none" data-click-icon-target="comment">
+
+
+        <div id="show-comments" data-click-icon-target="show-comments" class="">
+          <ul data-click-icon-target="list" style="list-style-type: none;">
+            <% meal.comments.each do |comment| %>
+               <%= render "shared/comment", comment: comment %>
             <% end %>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
-  <% end %>
+    <div>
+      <%= render "shared/comment_form", meal: meal, comment: @comment %>
+    </div>
+  </div>
+</div>
