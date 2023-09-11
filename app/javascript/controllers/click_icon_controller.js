@@ -2,11 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="click-icon"
 export default class extends Controller {
-  static targets = ["heart", "comment", "share", "comment-icon", "show-comments", "form", "list"]
+  static targets = ["heart", "comment", "share", "comment-icon", "show-comments", "form", "list", "result"]
   connect() {
     // console.log("hello from the controller");
     // console.log(this.formTarget);
     // console.log(this.listTarget);
+    console.log(this.data.get("urlValue"));
+    console.log(this.resultTarget);
   }
 
   showComment() {
