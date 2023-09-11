@@ -4,6 +4,9 @@ class ProfileController < ApplicationController
 
   def show
     authorize @user
+    @user_meals = @user.meals
+    @user_recipes = Recipe.where(user: current_user).order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def follow
@@ -52,5 +55,12 @@ class ProfileController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @user = current_user
+  end
+
+  def create_post
+    authorize current_user
+    @meal = Meal.new
+    @recipe = Recipe.new
   end
 end
