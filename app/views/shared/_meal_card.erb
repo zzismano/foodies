@@ -1,4 +1,4 @@
- <% @user_meals.each do |meal| %>
+<% @user_meals.each do |meal| %>
     <div  class="container mt-3 mb-3"  style="padding: initial" >
       <div class="card-body">
 
@@ -32,12 +32,13 @@
               <%= f.submit %>
             <% end %>
           </div>
-         
+
           <div>
             <% meal.comments.each do |comment| %>
               <%= comment.content %>
             <% end %>
           </div>
+
         </div>
       </div>
     </div>

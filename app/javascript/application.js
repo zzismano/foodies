@@ -6,11 +6,11 @@ import "bootstrap"
 
 import AddFriendController from "./controllers/add_friend.js"
 Stimulus.register('add-friend', AddFriendController)
-import PostsCreatorController from "./controllers/posts_creator_controller.js"
-Stimulus.register("disable-button", PostsCreatorController)
+import ToggleSwitchController from "./controllers/toggle_switch_controller.js"
+Stimulus.register("toggle-switch", ToggleSwitchController)
 
 
-// Ariel \/
+// Carla & Wallid \/
 
 import ClickIconController from "./controllers/click_icon_controller.js"
 Stimulus.register("click-icon", ClickIconController)
