@@ -15,10 +15,14 @@
 
 
   <div class="meals d-none">
-    <%= render "shared/meal_card" %>
+    <% @user_meals.each do |meal| %>
+      <%= render "shared/meal_card", meal: meal %>
+    <% end %>
   </div>
 
-  <div id="recipes" class="d-none">
-    <%= render "shared/recipe_card" %>
+  <div id="recipes" class="">
+    <% @user_recipes.each do |recipe| %>
+      <%= render "shared/recipe_card", recipe: recipe %>
+    <% end %>
   </div>
 </div>

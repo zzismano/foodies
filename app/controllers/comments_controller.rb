@@ -12,17 +12,33 @@ class CommentsController < ApplicationController
 
   def create
     if params[:comment][:commentable_type] == "Meal"
+      @meal = Meal.find_by(id: params[:comment][:commentable_id])
       @comment = Comment.new(meal_comment_params)
       @comment.user = current_user
       authorize @comment
-      @comment.save
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        if @comment.save
+          format.html { redirect_to user_path(current_user) }
+          format.json # Follows the classic Rails flow and look for a create.json view
+        else
+          format.html { render "comments/new" , status: :unprocessable_entity }
+          format.json # Follows the classic Rails flow and look for a create.json view
+        end
+      end
     else
+      @recipe = Recipe.find_by(id: params[:comment][:commentable_id])
       @comment = Comment.new(recipe_comment_params)
       @comment.user = current_user
       authorize @comment
-      @comment.save
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        if @comment.save
+          format.html { redirect_to user_path(current_user) }
+          format.json # Follows the classic Rails flow and look for a create.json view
+        else
+          format.html { render "comments/new" , status: :unprocessable_entity }
+          format.json # Follows the classic Rails flow and look for a create.json view
+        end
+      end
     end
   end
 

@@ -4,7 +4,9 @@ class MealsController < ApplicationController
   end
 
   def show
+    authorize current_user
     @meal = Meal.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
