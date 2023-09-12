@@ -1,7 +1,6 @@
-<div class="container">
-
+<div>
   <div class="container d-flex flex-column justify-content-center align-items-center" data-controller="add-friend">
-   <!--
+    <!--
     <img src="https://hips.hearstapps.com/hmg-prod/images/gordon-ramsay-646367718a5f4.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="avatar" class="rounded-circle mb-3">
     <h1>GordonBoy</h1>
     -->
@@ -34,23 +33,25 @@
       <%= link_to user.email, profile_path(user) %> is following you
       <%= button_to "Unfollow", unfollow_path(user) %>
     <% end %>
-   <div class="d-flex align-items-start mt-5">
-    <button class="recipes-filter">Recipes</button>
-    <button class="meals-filter">Meals</button>
+    <%# <div class="d-flex align-items-start mt-5">
+      <button class="recipes-filter">Recipes</button>
+      <button class="meals-filter">Meals</button>
+    </div> %>
+  <div data-controller="toggle-switch">
+    <%= render "shared/toggle_switch" %>
+    <div class="meals d-none">
+      <% @user_meals.each do |meal| %>
+        <div data-toggle-switch-target="mealTag" class="d-none">
+          <%= render "shared/meal_card", meal: meal %>
+        </div>
+      <% end %>
+    </div>
+    <div id="recipes" class="">
+      <% @user_recipes.each do |recipe| %>
+        <div data-toggle-switch-target="recipeTag" class="">
+          <%= render "shared/recipe_card", recipe: recipe %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-   <div class="meals d-none">
-    <% @user_meals.each do |meal| %>
-      <%= render "shared/meal_card", meal: meal %>
-    <% end %>
-  </div>
-
-  <div id="recipes" class="">
-    <% @user_recipes.each do |recipe| %>
-      <%= render "shared/recipe_card", recipe: recipe %>
-    <% end %>
-  </div>
-
-
-
 </div>
