@@ -14,11 +14,17 @@ Meal.destroy_all
 User.destroy_all
 
 p "Seeding Users..."
-user1 = User.new(username: "Remy", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
-user2 = User.new(username: "Gusteau", first_name: "Gusteau", last_name: "Garrett", city: "Paris", country: "France", age: 132, email: "master_chef@foodies.go", password: "654321")
-user3 = User.new(username: "Linguini", first_name: "Linguini", last_name: "Romano", city: "Paris", country: "France", age: 22, email: "pasta_chef@foodies.go", password: "123654")
-user4 = User.new(username: "Colette", first_name: "Colette", last_name: "Garofalo", city: "Paris", country: "France", age: 23, email: "victory_chef@foodies.go", password: "654123")
+user1 = User.new(username: "rat_chef", first_name: "Remy", last_name: "Oswalt", city: "Paris", country: "France", age: 10, email: "rat_chef@foodies.go", password: "123456")
+user2 = User.new(username: "Gustini", first_name: "Gusteau", last_name: "Garrett", city: "Paris", country: "France", age: 132, email: "master_chef@foodies.go", password: "654321")
+user3 = User.new(username: "Linguini_likes_food", first_name: "Linguini", last_name: "Romano", city: "Paris", country: "France", age: 22, email: "pasta_chef@foodies.go", password: "123654")
+user4 = User.new(username: "Colette_the_cook", first_name: "Colette", last_name: "Garofalo", city: "Paris", country: "France", age: 23, email: "victory_chef@foodies.go", password: "654123")
 user5 = User.new(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
+user6 = User.new(username: "Caio_cooks", first_name: "Caio", last_name: "Centeio", city: "Rio de Janeiro", country: "Brazil", age: 26, email: "CFCenteio@gmail.com", password: "111")
+user7 = User.new(username: "Pedro_eats", first_name: "Pedro", last_name: "Zisman", city: "Rio de Janeiro", country: "Brazil", age: 28, email: "pedrobolliger@gmail.com", password: "111")
+user8 = User.new(username: "chef_Alicja", first_name: "Alicja", last_name: "Surzyn", city: "Guadalajara", country: "Mexico", age: 37, email: "alicja.surzyn@gmail.com", password: "111")
+user9 = User.new(username: "wild_walid", first_name: "Walid", last_name: "Majdoubi", city: "Paris", country: "France", age: 34, email: "walid@gmail.com", password: "111")
+
+
 
 file1 = URI.open("https://i.pinimg.com/originals/eb/bf/28/ebbf28303696dd50ccc1a9738bd90556.jpg")
 user1.photo.attach(io: file1, filename: "#{user1.username}profile.jpg", content_type: "image/jpg")
@@ -34,6 +40,18 @@ user4.photo.attach(io: file4, filename: "profile.jpg", content_type: "image/jpg"
 
 file5 = URI.open("https://media.licdn.com/dms/image/C5612AQEtaPzav6ILVg/article-inline_image-shrink_400_744/0/1593135096999?e=1698883200&v=beta&t=M7kBt18GR00QDauBxL_QtfQUFJ-J2Rm0jIYW-Fv4HB4")
 user5.photo.attach(io: file5, filename: "profile.jpg", content_type: "image/jpg")
+
+file6 = URI.open("app/assets/images/caio.jpg")
+user6.photo.attach(io: file6, filename: "profile.jpg", content_type: "image/jpg")
+
+file7 = URI.open("app/assets/images/pedro.jpg")
+user7.photo.attach(io: file7, filename: "profile.jpg", content_type: "image/jpg")
+
+file8 = URI.open("app/assets/images/alicja.jpg")
+user8.photo.attach(io: file8, filename: "profile.jpg", content_type: "image/jpg")
+
+file9 = URI.open("app/assets/images/walid.jpg")
+user9.photo.attach(io: file9, filename: "profile.jpg", content_type: "image/jpg")
 
 user1.save!
 user2.save!
@@ -92,9 +110,10 @@ recipe3.save!
 p "Seeding Meals..."
 
 
-meal1 = Meal.new(title: "Ratatouille", restaurant:"Gusteau's", caption: "Check it out!", lat: "48.87085038918666", long: "2.343018048001365", user: user1)
-meal2 = Meal.new(title: "Leak and Potato Soup", restaurant:"Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1)
-meal3 = Meal.new(title: "Chicken", restaurant:"Gusteau's", caption: "Delightful", lat: "48.87085038918666", long: "2.343018048001365", user: user1)
+meal1 = Meal.new(title: "Ratatouille", restaurant: "Gusteau's", caption: "Check it out!", lat: "48.87085038918666", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal2 = Meal.new(title: "Leak and Potato Soup", restaurant: "Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal3 = Meal.new(title: "Chicken", restaurant: "Gusteau's", caption: "Delightful", lat: "48.87085038918666", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal4 = Meal.new(title: "Cheese Tapioca", restaurant: "Barraca da Greicy", caption: "So different and yummy and chewy",  lat: "22.984716,", long: "43.198595", user: user9, address: "R. Teixeira de Melo, 32, Rio de Janeiro, Brazil")
 
 
 file1 = URI.open("https://i.ytimg.com/vi/8a51lQaKg4w/maxresdefault.jpg")
