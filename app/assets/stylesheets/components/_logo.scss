@@ -1,3 +1,10 @@
 .gradient {
   background: linear-gradient(to right, $teal, $pink)
 }
+.card-gradient {
+  background: linear-gradient(white, $pink);
+}
+
+.caption-gradient {
+  background: linear-gradient(white, $teal);
+}
