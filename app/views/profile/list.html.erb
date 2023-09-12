@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row d-flex justify-content-center my-3">
+    <h3> Followers </h3>
+    <ul style="list-style-type: none;">
+    <div>
+
+    </div>
+        <% @user.followers.each do |user| %>
+        <li class="d-flex justify-content-start"> <%=cl_image_tag user.photo.key, class: "avatar-large"%> <strong><%= link_to user.username, profile_path(user)%></strong>
+            <%= button_to "Unfollow", unfollow_path(user), class: "unfollow-button mx-8"  %></li>
+        <% end %>
+    </ul>
+  </div>
+</div>

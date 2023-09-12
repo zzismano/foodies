@@ -13,4 +13,7 @@ class PagesController < ApplicationController
       @posts << recipe
     end
   end
+
+
+
 end

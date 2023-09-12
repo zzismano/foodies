@@ -32,6 +32,7 @@
       <%= button_to "Decline", decline_path(request.followerable) %>
     <% end %>
   <hr />
+    <%= link_to "followers: #{@user.followers.count}", list_path(@user) %>
     <% current_user.followers.each do |user| %>
       <%= link_to user.email, profile_path(user) %> is following you
       <%= button_to "Unfollow", unfollow_path(user) %>

@@ -49,6 +49,10 @@ class ProfileController < ApplicationController
     @recipe = Recipe.new
   end
 
+  def list
+    authorize current_user
+  end
+
   private
 
   def make_it_a_friend_request
