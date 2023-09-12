@@ -14,11 +14,16 @@
     <div  class="card-gradient" id="title_of_restaurant" >
       <div class="d-flex justify-content-between m-1">
         <h5><%= meal.title%> at <%= meal.restaurant %></h5>
-        <% if current_user == meal.user  %>
-          <%= link_to user_meal_path(meal.user_id, meal.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
-            <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+        <div class="p-1">
+          <% if current_user == meal.user  %>
+            <%= link_to edit_user_meal_path(meal.user_id, meal.id) do%>
+              <i class="fa-solid fa-pen-to-square" style="color: #6f7785"></i>
+            <% end %>
+            <%= link_to user_meal_path(meal.user_id, meal.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+              <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <p><%= meal.caption %></p>
     </div>

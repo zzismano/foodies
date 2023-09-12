@@ -31,15 +31,31 @@ class MealsController < ApplicationController
     end
   end
 
+  def edit
+    authorize current_user
+    @meal = Meal.find(params[:id])
+  end
+
   def update
+    authorize current_user
     @meal = Meal.find(params[:id])
     @meal.update(meal_params)
 
     # need to change path to index
-    redirect_to meal_path(@meal)
+    redirect_to user_meal_path(@meal.user.id, @meal.id)
   end
 
-private
+  def destroy
+    authorize current_user
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+
+    if @meal.destroy
+      redirect_to profile_path(current_user)
+    end
+  end
+
+  private
 
   def meal_params
     params.require(:meal).permit(:title, :restaurant, :caption, :lat, :long, :photo)
