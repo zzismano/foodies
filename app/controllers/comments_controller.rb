@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
           format.html { redirect_to user_path(current_user) }
           format.json # Follows the classic Rails flow and look for a create.json view
         else
-          format.html { render "comments/new" , status: :unprocessable_entity }
+          format.html { render "comments/new", status: :unprocessable_entity }
           format.json # Follows the classic Rails flow and look for a create.json view
         end
       end
@@ -42,6 +42,19 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize current_user
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_back(fallback_location: root_path)
+    end
+    # if @comment.commentable_type == "Meal"
+    #   redirect_to user_meal_path(@comment.commentable.user.id, @comment.commentable.id)
+    # else
+    #   redirect_to user_recipe_path(@comment.commentable.user.id, @comment.commentable.id)
+    # end
+  end
+
   private
 
   def set_recipe
@@ -56,10 +69,10 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :commentable_id, :commentable_type)
   end
 
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to meal_path(@review.meal), status: :see_other
-  end
+  # def destroy
+  #   @review = Review.find(params[:id])
+  #   @review.destroy
+  #   redirect_to meal_path(@review.meal), status: :see_other
+  # end
 
 end

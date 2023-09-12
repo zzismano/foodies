@@ -1,0 +1,8 @@
+<div class="m-2">
+  <%= simple_form_for([current_user, @meal]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :restaurant %>
+    <%= f.input :caption %>
+    <%= f.submit %>
+  <% end %>
+</div>

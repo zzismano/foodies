@@ -28,11 +28,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    authorize current_user
+    @recipe = Recipe.find(params[:id])
+  end
+
   def update
+    authorize current_user
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
-
-    redirect_to recipe_path(@recipe)
+    redirect_to user_recipe_path(@recipe.user.id, @recipe.id)
   end
 
   def destroy

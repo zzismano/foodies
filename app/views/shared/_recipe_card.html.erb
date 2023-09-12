@@ -15,11 +15,16 @@
     <div id="title_of_recipe" class="caption-gradient">
       <div class="d-flex justify-content-between">
         <h5> <%= recipe.title%> </h5>
-        <% if current_user == recipe.user  %>
-          <%= link_to user_recipe_path(recipe.user_id, recipe.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
-            <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+        <div class="p-1">
+          <% if current_user == recipe.user  %>
+            <%= link_to edit_user_recipe_path(recipe.user_id, recipe.id) do%>
+                <i class="fa-solid fa-pen-to-square" style="color: #6f7785"></i>
+              <% end %>
+            <%= link_to user_recipe_path(recipe.user_id, recipe.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+              <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <p> <%= recipe.caption %></p>
       <p> <strong>Ingredients:</strong>  <%= recipe.ingredients %></p>
