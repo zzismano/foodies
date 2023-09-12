@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'profile/:id', to: 'profile#show', as: 'profile'
+  get 'profile/:id/list', to: 'profile#list', as: "list"
 
   post 'profile/:id/follow', to: "profile#follow", as: "follow"
   post 'profile/:id/unfollow', to: "profile#unfollow", as: "unfollow"

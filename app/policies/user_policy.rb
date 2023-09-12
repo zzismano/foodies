@@ -34,6 +34,9 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def list?
+    true
+  end
 
   def create?
     true

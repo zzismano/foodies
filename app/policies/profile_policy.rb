@@ -30,4 +30,8 @@ class ProfilePolicy < ApplicationPolicy
     true
   end
 
+  def list?
+    true
+  end
+
 end
