@@ -12,7 +12,14 @@
     </div>
 
     <div  class="card-gradient" id="title_of_restaurant" >
-      <h5><%= meal.title%> at <%= meal.restaurant %></h5>
+      <div class="d-flex justify-content-between m-1">
+        <h5><%= meal.title%> at <%= meal.restaurant %></h5>
+        <% if current_user == meal.user  %>
+          <%= link_to user_meal_path(meal.user_id, meal.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+            <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+          <% end %>
+        <% end %>
+      </div>
       <p><%= meal.caption %></p>
     </div>
 
@@ -30,7 +37,7 @@
         <div id="show-comments" data-click-icon-target="show-comments" class="">
           <ul data-click-icon-target="list" style="list-style-type: none;">
             <% meal.comments.each do |comment| %>
-               <%= render "shared/comment", comment: comment %>
+              <%= render "shared/comment", comment: comment %>
             <% end %>
           </ul>
         </div>

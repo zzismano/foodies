@@ -2,8 +2,10 @@
   <li> <%=cl_image_tag comment.user.photo.key,  class: "avatar"%> <strong><%=comment.user.username%></strong> </li>
   <div class="d-flex justify-content-between">
     <li style="margin-left: 50px;"><%= comment.content %> </li>
-    <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+    <% if current_user == comment.user || current_user == comment.commentable.user %>
+      <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
         <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+      <% end %>
     <% end %>
   </div>
 
