@@ -5,8 +5,8 @@ class ProfileController < ApplicationController
 
   def show
     authorize current_user
-    @user_meals = @user.meals
-    @user_recipes = Recipe.where(user: current_user).order(created_at: :desc)
+    @user_meals = Meal.where(user: @user).order(created_at: :desc)
+    @user_recipes = Recipe.where(user: @user).order(created_at: :desc)
     @comment = Comment.new
   end
 

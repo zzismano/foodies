@@ -39,7 +39,7 @@
     </div> %>
   <div data-controller="toggle-switch">
     <%= render "shared/toggle_switch" %>
-    <div class="meals d-none">
+    <div class="meals">
       <% @user_meals.each do |meal| %>
         <div data-toggle-switch-target="mealTag" class="d-none">
           <%= render "shared/meal_card", meal: meal %>
