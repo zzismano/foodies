@@ -1,6 +1,15 @@
 class MealsController < ApplicationController
   def index
     @meals = Meal.all
+    @geo_meals = Meal.geocoded
+    @markers = @geo_meals.map do |meal|
+      {
+      lat: meal.latitude,
+      lng: meal.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {meal: meal}),
+      marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
