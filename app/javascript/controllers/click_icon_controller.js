@@ -15,7 +15,7 @@ export default class extends Controller {
     // console.log(this.listTarget);
     // console.log(this.data.get("urlValue"));
     // console.log(this.resultTarget);
-    console.log(this.data.get("urlValue"));
+    // console.log(this.data.get("urlValue"));
   }
 
   showComment() {
