@@ -114,14 +114,14 @@ recipe3.save!
 p "Seeding Meals..."
 
 
-meal1 = Meal.new(title: "Ratatouille", restaurant: "Gusteau's", caption: "Check it out!", lat: "48.87085038918666", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
-meal2 = Meal.new(title: "Leak and Potato Soup", restaurant: "Gusteau's", caption: "And also this!", lat: "48.87085038918666,", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
-meal3 = Meal.new(title: "Chicken", restaurant: "Gusteau's", caption: "Delightful", lat: "48.87085038918666", long: "2.343018048001365", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
-meal4 = Meal.new(title: "Cheese Tapioca", restaurant: "Barraca da Greicy", caption: "So different and yummy and chewy",  lat: "-22.984716", long: "-43.198595", user: user7, address: "R. Teixeira de Melo, 32, Rio de Janeiro, Brazil")
-meal5 = Meal.new(title: "Moqueca", restaurant: "Restaurant 365", caption: "Delightful moqueca, Bahia style", lat: "-23.006805291688792", long: "-43.35167250667673", user: user6, address: "Av. Lúcio Costa, 5210, Rio de Janeiro, Brazil")
-meal6 = Meal.new(title: "Oven Baked Pizza", restaurant: "Chris Place", caption: "Super fresh dough and flavorful toppings", lat: "20.698116998846587", long: "-103.3764842200538", user: user8, address: "Buenos Aires 2332, Guadalajara, México")
-meal7 = Meal.new(title: "Tostada de Atun", restaurant: "El Zar de Mar", caption: "Freshest seafood in Mexico", lat: "20.730111", long: "-103.390167", user: user9, address: "Pino Suárez 469, El Vigía, Guadalajara, México")
-meal8 = Meal.new(title: "Risotto", restaurant: "Casa do Sardo", caption: "Best risotto texture I've ever had", lat: "-22.9033089851732", long: "-43.21871831795498", user: user8, address: "R. São Cristóvão, 405, Rio de Janeiro, Brazil")
+meal1 = Meal.new(title: "Ratatouille", restaurant: "Gusteau's", caption: "Check it out!", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal2 = Meal.new(title: "Leak and Potato Soup", restaurant: "Gusteau's", caption: "And also this!", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal3 = Meal.new(title: "Chicken", restaurant: "Gusteau's", caption: "Delightful", user: user1, address: "168 Rue Montmartre, 75002 Paris, France")
+meal4 = Meal.new(title: "Cheese Tapioca", restaurant: "Barraca da Greicy", caption: "So different and yummy and chewy", user: user7, address: "R. Teixeira de Melo, 32, Rio de Janeiro, Brazil")
+meal5 = Meal.new(title: "Moqueca", restaurant: "Restaurant 365", caption: "Delightful moqueca, Bahia style", user: user6, address: "Av. Lúcio Costa, 5210, Rio de Janeiro, Brazil")
+meal6 = Meal.new(title: "Oven Baked Pizza", restaurant: "Chris Place", caption: "Super fresh dough and flavorful toppings", user: user8, address: "Buenos Aires 2332, Guadalajara, México")
+meal7 = Meal.new(title: "Tostada de Atun", restaurant: "El Zar de Mar", caption: "Freshest seafood in Mexico", user: user9, address: "Pino Suárez 469, El Vigía, Guadalajara, México")
+meal8 = Meal.new(title: "Risotto", restaurant: "Casa do Sardo", caption: "Best risotto texture I've ever had", user: user8, address: "R. São Cristóvão, 405, Rio de Janeiro, Brazil")
 
 file1 = URI.open("https://i.ytimg.com/vi/8a51lQaKg4w/maxresdefault.jpg")
 meal1.photo.attach(io: file1, filename: "post.jpg", content_type: "image/jpg")
@@ -155,6 +155,6 @@ meal5.save!
 meal6.save!
 meal7.save!
 meal8.save!
-# meal3 = Meal.create(title: "", restaurant:"", caption: "", lat: "", long: "", user:)
+# meal3 = Meal.create(title: "", restaurant:"", caption: "", latitude: "", longitude: "", user:)
 
 p "Seeding complete!"
