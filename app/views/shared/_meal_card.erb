@@ -4,7 +4,7 @@
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
       <%= link_to profile_path(meal.user_id, meal.id) do %>
-        <%= cl_image_tag meal.user.photo.key, class: "avatar-large" %>
+        <%= cl_image_tag meal.user.photo.key, :default_image => "https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694633061/non_existing_id_r0puhy.png", class: "avatar-large" %>
         <p class="text-decoration-none"><%= meal.user.username %></p>
       <% end %>
     </div>

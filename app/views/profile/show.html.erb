@@ -5,7 +5,7 @@
     <h1>GordonBoy</h1>
     -->
     <div class="container d-flex align-items-start p-4">
-    <%= cl_image_tag @user.photo.key,  class: "circular-image" %>
+      <%= display_profile_photo(@user) %>
     <div class="card-header">
       <h3><%= @user.username  %></h3>
       <p> Eating in: <%= @user.city %>, <%= @user.country%></p>
