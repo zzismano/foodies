@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'profile/:id/accept', to: "profile#accept", as: "accept"
   post 'profile/:id/decline', to: "profile#decline", as: "decline"
   post 'profile/:id/cancel', to: "profile#cancel", as: "cancel"
+  get 'users/search', to: "users#search", as: "search"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

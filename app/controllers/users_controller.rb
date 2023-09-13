@@ -11,6 +11,19 @@ class UsersController < ApplicationController
 
   end
 
+  def search
+    authorize current_user
+    if params[:query].present?
+      @users = User.global_search(params[:query])
+      @meals = Meal.global_search(params[:query])
+      @recipes = Recipe.global_search(params[:query])
+    else
+      @users = User.all
+      @meals = Meal.all
+      @recipes = Recipe.all
+    end
+  end
+
   def create_post
     authorize current_user
     @meal = Meal.new

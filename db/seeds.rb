@@ -8,6 +8,7 @@
 
 p "Cleaning database"
 
+Friendship.destroy_all
 Comment.destroy_all
 Recipe.destroy_all
 Meal.destroy_all
@@ -19,10 +20,10 @@ user2 = User.new(username: "Gustini", first_name: "Gusteau", last_name: "Garrett
 user3 = User.new(username: "Linguini_likes_food", first_name: "Linguini", last_name: "Romano", city: "Paris", country: "France", age: 22, email: "pasta_chef@foodies.go", password: "123654")
 user4 = User.new(username: "Colette_the_cook", first_name: "Colette", last_name: "Garofalo", city: "Paris", country: "France", age: 23, email: "victory_chef@foodies.go", password: "654123")
 user5 = User.new(username: "Anton", first_name: "Anton", last_name: "Ego", city: "Paris", country: "France", age: 47, email: "review_chef@foodies.go", password: "321456")
-user6 = User.new(username: "Caio_cooks", first_name: "Caio", last_name: "Centeio", city: "Rio de Janeiro", country: "Brazil", age: 26, email: "CFCenteio@gmail.com", password: "111")
-user7 = User.new(username: "Pedro_eats", first_name: "Pedro", last_name: "Zisman", city: "Rio de Janeiro", country: "Brazil", age: 28, email: "pedrobolliger@gmail.com", password: "111")
-user8 = User.new(username: "chef_Alicja", first_name: "Alicja", last_name: "Surzyn", city: "Guadalajara", country: "Mexico", age: 37, email: "alicja.surzyn@gmail.com", password: "111")
-user9 = User.new(username: "wild_walid", first_name: "Walid", last_name: "Majdoubi", city: "Paris", country: "France", age: 34, email: "walid@gmail.com", password: "111")
+user6 = User.new(username: "Caio_cooks", first_name: "Caio", last_name: "Centeio", city: "Rio de Janeiro", country: "Brazil", age: 26, email: "CFCenteio@gmail.com", password: "123456")
+user7 = User.new(username: "Pedro_eats", first_name: "Pedro", last_name: "Zisman", city: "Rio de Janeiro", country: "Brazil", age: 28, email: "pedrobolliger@gmail.com", password: "123456")
+user8 = User.new(username: "chef_Alicja", first_name: "Alicja", last_name: "Surzyn", city: "Guadalajara", country: "Mexico", age: 37, email: "alicja.surzyn@gmail.com", password: "123456")
+user9 = User.new(username: "wild_walid", first_name: "Walid", last_name: "Majdoubi", city: "Paris", country: "France", age: 34, email: "walid@gmail.com", password: "111111")
 
 
 
