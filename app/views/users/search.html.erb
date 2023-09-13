@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" data-controller="toggle-switch">
   <div class="col-sm-8 my-3">
     <%= form_with url: search_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -9,35 +9,42 @@
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
   </div>
+  <%= render "shared/toggle_switch" %>
   <div id="users">
     <% @users.each do |user| %>
-      <%= link_to profile_path(user.id) do %>
-        <ul style="list-style-type: none;">
-          <li> <strong><%=cl_image_tag user.photo.key,  class: "avatar"%> <%= user.username %></strong> </li>
-        </ul>
+      <%= link_to profile_path(user.id), class: "text-decoration-none link-dark" do %>
+        <div data-toggle-switch-target="userTag" class="">
+          <ul style="list-style-type: none;" >
+            <li> <strong><%=cl_image_tag user.photo.key,  class: "avatar"%> <%= user.username %></strong> </li>
+          </ul>
+        </div>
       <% end %>
     <% end %>
   </div>
   <div id="meals">
     <% @meals.each do |meal| %>
-      <div class="card-product">
-        <%=cl_image_tag meal.photo.key %>
-        <div class="card-product-infos">
-          <h2><%= meal.title %> at <%= meal.restaurant %></h2>
-          <p><%= meal.caption %>.</p>
+      <%= link_to user_meal_path(meal.user_id, meal.id), class: "text-decoration-none link-dark" do %>
+        <div class="card-product" data-toggle-switch-target="mealTag">
+          <%=cl_image_tag meal.photo.key %>
+          <div class="card-product-infos">
+            <h2><%= meal.title %> at <%= meal.restaurant %></h2>
+            <p><%= meal.caption %>.</p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div id="recipes">
     <% @recipes.each do |recipe| %>
-      <div class="card-product">
-        <%=cl_image_tag recipe.photos.first.key %>
-        <div class="card-product-infos">
-          <h2><%= recipe.title %> by <%= recipe.user.username %></h2>
-          <p><%= recipe.caption %>.</p>
+      <%= link_to user_recipe_path(recipe.user_id, recipe.id), class: "text-decoration-none link-dark" do %>
+        <div class="card-product" data-toggle-switch-target="recipeTag">
+          <%=cl_image_tag recipe.photos.first.key %>
+          <div class="card-product-infos">
+            <h2><%= recipe.title %> by <%= recipe.user.username %></h2>
+            <p><%= recipe.caption %>.</p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
     </ul>
     </div>

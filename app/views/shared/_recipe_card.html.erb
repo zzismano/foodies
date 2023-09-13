@@ -3,7 +3,7 @@
   <div class="card-body" data-controller="click-icon" data-click-icon-url-value= "/users/<%= recipe.user_id %>/recipes/<%= recipe.id %>">
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <%= link_to profile_path(recipe.user_id, recipe.id), class: "text-decoration-none" do %>
+      <%= link_to profile_path(recipe.user_id, recipe.id), class:"text-decoration-none link-dark" do %>
         <%= cl_image_tag recipe.user.photo.key, class: "avatar-large" %>
         <span>  <%= recipe.user.username %> </span>
       <% end %>
