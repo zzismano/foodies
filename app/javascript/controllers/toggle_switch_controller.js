@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["mealTag", "recipeTag", "recipeSwitch", "mealSwitch"]
   connect() {
-    console.log("Hi from the posts creator controller")
+    console.log("Hi from the toggle switch controller")
   }
 
   toggleForm(event) {
