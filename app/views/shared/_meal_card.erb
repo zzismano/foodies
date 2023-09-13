@@ -10,7 +10,7 @@
     </div>
 
     <div id="user_image" class="card-body" >
-      <%= link_to user_meal_path(meal.user_id, meal.id) do %>
+      <%= link_to user_meal_path(meal.user_id, meal.id), class:"text-decoration-none link-dark" do %>
         <%= cl_image_tag meal.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3" %>
       <% end %>
     </div>
