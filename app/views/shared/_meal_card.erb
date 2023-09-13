@@ -1,11 +1,11 @@
 <div  class="container mt-3 mb-3"  style="padding: initial" >
-  <div data-controller="click-icon" class="card-body" >
+  <div data-controller="click-icon" class="card-body" data-click-icon-url-value= "/users/<%= meal.user_id %>/meals/<%= meal.id %>">
 
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <%= link_to profile_path(meal.user_id, meal.id) do %>
-        <%= cl_image_tag meal.user.photo.key, :default_image => "https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694633061/non_existing_id_r0puhy.png", class: "avatar-large" %>
-        <p class="text-decoration-none"><%= meal.user.username %></p>
+      <%= link_to profile_path(meal.user_id, meal.id), class: "text-decoration-none" do %>
+        <%= cl_image_tag meal.user.photo.key, class: "avatar-large" %>
+        <span> <%= meal.user.username %> </span>
       <% end %>
     </div>
 
@@ -37,7 +37,8 @@
     <div>
       <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
       <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
-      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon" data-click-icon-url-value= "/users/:user_id/meals/:id"></i>
+      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i>
+
 
 
       <div id="comments" class="d-none" data-click-icon-target="comment">
