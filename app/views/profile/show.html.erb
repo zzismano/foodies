@@ -5,8 +5,13 @@
     <h1>GordonBoy</h1>
     -->
     <div class="container d-flex align-items-start p-4">
+      <%= display_profile_photo(@user) %>  
+    <div class="card-header">
+      <h3><%= @user.username  %></h3>
+      <p> Eating in: <%= @user.city %>, <%= @user.country%></p>
+      <p> Maybe we need to a table column for a description </p>
+    </div>
       <div>
-        <%= cl_image_tag @user.photo.key,  class: "circular-image mb-3" %>
           <div class="d-flex align-items-center justify-content-between">
             <a class="fa-solid fa-pen-to-square button-profile-page" href="/user/edit"  ></a>
             <% if current_user.following?(@user) %>
@@ -24,6 +29,7 @@
             <p> Eating in : <%= @user.city %>, <%= @user.country%></p>
              <%= link_to "Followers: #{@user.followers.count}", list_path(@user), class: "link-dark text-decoration-none" %>
       </div>
+
 
   </div>
 
