@@ -51,8 +51,8 @@ user7.photo.attach(io: file7, filename: "profile.jpg", content_type: "image/jpg"
 file8 = URI.open("https://scontent.fsdu8-2.fna.fbcdn.net/v/t39.30808-6/327977119_1437951603678355_2851698994938867569_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFxbi6_kn7wVzgZ7PhpxAq3tnLm0G9s3Lm2cubQb2zcuWY0ksWvRnXAI-OovQbgpIM&_nc_ohc=cWN5uWi7Td8AX-eNoMn&_nc_zt=23&_nc_ht=scontent.fsdu8-2.fna&oh=00_AfAElK4NfCFJZPddJFyZqwN7i8_LkFYpmzHQ72qW16nAkw&oe=65061BFC")
 user8.photo.attach(io: file8, filename: "profile.jpg", content_type: "image/jpg")
 
-file9 = URI.open("https://photos.app.goo.gl/F9sHU6e9domxhQBX8")
-user9.photo.attach(io: file9, filename: "profile.jpg", content_type: "image/jpg")
+file9 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694625568/Screenshot_20230913-095553-742_yxtlcx.png")
+user9.photo.attach(io: file9, filename: "profile.png", content_type: "image/png")
 
 user1.save!
 user2.save!
