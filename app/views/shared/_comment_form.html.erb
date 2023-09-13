@@ -1,6 +1,6 @@
 <%= form_for comment, data: { click_icon_target: "form", action: "submit->click-icon#send"} do |f| %>
   <%= f.hidden_field :commentable_id, value: meal.id %>
   <%= f.hidden_field :commentable_type, value: "Meal" %>
-  <p>Comment: <%= f.text_area :content %></p>
+  <p>Comment: <%= f.text_area :content, class: "mt-3 invisible-textarea" %></p>
   <%= f.submit %>
 <% end %>
