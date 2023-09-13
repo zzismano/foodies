@@ -1,9 +1,12 @@
 
 <div  class="container mt-3 mb-3"  style="padding: initial" >
   <div class="card-body" data-controller="click-icon">
+
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="user" class="avatar">
-      <span>  <%= recipe.user.username %> </span>
+      <%= link_to profile_path(recipe.user_id, recipe.id) do %>
+        <%= cl_image_tag recipe.user.photo.key, class: "avatar-large" %>
+        <span>  <%= recipe.user.username %> </span>
+      <% end %>
     </div>
 
     <div id="user_image" class="card-body">

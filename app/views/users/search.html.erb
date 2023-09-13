@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: search_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div id="users">
+    <% @users.each do |user| %>
+      <%= link_to profile_path(user.id) do %>
+        <ul style="list-style-type: none;">
+          <li> <strong><%=cl_image_tag user.photo.key,  class: "avatar"%> <%= user.username %></strong> </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="meals">
+    <% @meals.each do |meal| %>
+      <div class="card-product">
+        <%=cl_image_tag meal.photo.key %>
+        <div class="card-product-infos">
+          <h2><%= meal.title %> at <%= meal.restaurant %></h2>
+          <p><%= meal.caption %>.</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="recipes">
+    <% @recipes.each do |recipe| %>
+      <div class="card-product">
+        <%=cl_image_tag recipe.photos.first.key %>
+        <div class="card-product-infos">
+          <h2><%= recipe.title %> by <%= recipe.user.username %></h2>
+          <p><%= recipe.caption %>.</p>
+        </div>
+      </div>
+    <% end %>
+    </ul>
+    </div>
+  </div>
+</div>

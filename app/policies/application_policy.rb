@@ -36,6 +36,9 @@ class ApplicationPolicy
     false
   end
 
+  def search?
+    true
+  end
   class Scope
     def initialize(user, scope)
       @user = user

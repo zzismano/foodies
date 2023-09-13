@@ -3,8 +3,10 @@
 
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <img src="https://ih1.redbubble.net/image.999574152.6606/flat,750x1000,075,f.jpg" alt="user" class="avatar">
-      <span>  <%= meal.user.username %> </span>
+      <%= link_to profile_path(meal.user_id, meal.id) do %>
+        <%= cl_image_tag meal.user.photo.key, class: "avatar-large" %>
+        <p class="text-decoration-none"><%= meal.user.username %></p>
+      <% end %>
     </div>
 
     <div id="user_image" class="card-body" >
@@ -14,7 +16,7 @@
     </div>
 
     <div  class="card-gradient" id="title_of_restaurant" >
-      <div class="d-flex justify-content-between m-1">
+      <div class="d-flex justify-content-between">
         <h5><%= meal.title%> at <%= meal.restaurant %></h5>
         <div class="p-1">
           <% if current_user == meal.user  %>
