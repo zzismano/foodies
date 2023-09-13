@@ -62,7 +62,7 @@ class CommentsController < ApplicationController
   end
 
   def recipe_comment_params
-    params.require(:recipe).permit(:content, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:content, :commentable_id, :commentable_type)
   end
 
   def meal_comment_params
