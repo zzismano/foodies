@@ -48,10 +48,10 @@ user6.photo.attach(io: file6, filename: "profile.jpg", content_type: "image/jpg"
 file7 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694626149/pedro_dbhspo.jpg")
 user7.photo.attach(io: file7, filename: "profile.jpg", content_type: "image/jpg")
 
-file8 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694625633/development/swa4xno4wiai4tzwvnpz7pkl4h1p.jpg")
+file8 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694639862/PXL_20220713_223119004_isp306.jpg")
 user8.photo.attach(io: file8, filename: "profile.jpg", content_type: "image/jpg")
 
-file9 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694625635/development/1cez3ndxmuxrenvhpr6k1m9e93n3.png")
+file9 = URI.open("https://res.cloudinary.com/dk8ykeiqh/image/upload/v1694625568/Screenshot_20230913-095553-742_yxtlcx.png")
 user9.photo.attach(io: file9, filename: "profile.png", content_type: "image/png")
 
 user1.save!
