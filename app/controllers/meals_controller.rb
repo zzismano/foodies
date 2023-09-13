@@ -7,7 +7,7 @@ class MealsController < ApplicationController
       lat: meal.latitude,
       lng: meal.longitude,
       info_window_html: render_to_string(partial: "info_window", locals: {meal: meal}),
-      marker_html: render_to_string(partial: "marker")
+      marker_html: render_to_string(partial: "marker", locals: {meal: meal})
       }
     end
   end
@@ -16,6 +16,13 @@ class MealsController < ApplicationController
     authorize current_user
     @meal = Meal.find(params[:id])
     @comment = Comment.new
+    @markers =
+      [{
+      lat: @meal.latitude,
+      lng: @meal.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {meal: @meal}),
+      marker_html: render_to_string(partial: "marker", locals: {meal: @meal})
+      }]
   end
 
   def new
