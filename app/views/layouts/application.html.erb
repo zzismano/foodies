@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Gabriela&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,14 +16,16 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-
-    <div>
-      <%= render "shared/flashes" %>
-
-      <%= yield %>
+    <div class="pb-6">
+      <%= render "shared/navbar" %>
+      <div>
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+      <div>
+        <%= render "shared/bottom_navbar" %>
+      </div>
     </div>
 
-    <div><%= render "shared/bottom_navbar" %></div>
   </body>
 </html>
