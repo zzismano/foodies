@@ -1,10 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
+import Swal from "sweetalert2"
+
 
 // Connects to data-controller="click-icon"
 export default class extends Controller {
   static targets = ["heart", "comment", "share", "comment-icon", "show-comments", "form", "list", "share-icon"]
   static values = {
-    url: String
+    url: String,
+    icon: String,
+    alertTitle: String,
+    alertHtml: String,
+    confirmButtonText: String,
+    showCancelButton: Boolean,
+    cancelButtonText: String
   }
 
   // static values = { feedbackText: String }
@@ -15,7 +23,7 @@ export default class extends Controller {
     // console.log(this.listTarget);
     // console.log(this.data.get("urlValue"));
     // console.log(this.resultTarget);
-    // console.log(this.data.get("urlValue"));
+    console.log(this.urlValue);
   }
 
   showComment() {
@@ -50,13 +58,14 @@ export default class extends Controller {
     })
   }
 
-  // copy(event) {
-
-  //   const urlValue = this.shareIconTarget.dataset.clickIconUrlValue;
-
-  //   navigator.clipboard.writeText(urlValue).then(() => {
-  //     event.currentTarget.disabled = true;
-  //     event.currentTarget.innerText = this.iconUrlValue;
-  //   });
-  // }
+  copy(event) {
+    const url = `${window.location.origin}${this.urlValue}`
+    navigator.clipboard.writeText(url)
+    event.currentTarget.disabled = true
+    Swal.fire({
+      title: 'Share with Foodies!',
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    })
+  }
 }

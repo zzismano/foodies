@@ -1,9 +1,9 @@
 
 <div  class="container mt-3 mb-3"  style="padding: initial" >
-  <div class="card-body" data-controller="click-icon">
+  <div class="card-body" data-controller="click-icon" data-click-icon-url-value= "/users/<%= recipe.user_id %>/recipes/<%= recipe.id %>">
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <%= link_to profile_path(recipe.user_id, recipe.id) do %>
+      <%= link_to profile_path(recipe.user_id, recipe.id), class: "text-decoration-none" do %>
         <%= cl_image_tag recipe.user.photo.key, class: "avatar-large" %>
         <span>  <%= recipe.user.username %> </span>
       <% end %>
@@ -37,9 +37,9 @@
     </div>
 
     <div>
-      <i class="fa-regular fa-heart fa-2xl" data-action="click->click#toggleHeart"></i>
-      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment"></i>
-      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#handleShare"></i>
+      <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
+      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
+      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i>
 
 
       <div id="comments" class="d-none" data-click-icon-target="comment">
