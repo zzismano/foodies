@@ -1,3 +1,16 @@
 .user-box {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: rgb(183, 236, 236);
+  border-bottom: 1px solid #fff
+}
 
+.user-box input{
+  top: -20px;
+  left: 0;
+  color: #bdb8b8;
+  font-size: 12px;
 }
