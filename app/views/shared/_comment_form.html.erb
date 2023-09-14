@@ -1,6 +1,10 @@
-<%= form_for comment, data: { click_icon_target: "form", action: "submit->click-icon#send"} do |f| %>
-  <%= f.hidden_field :commentable_id, value: meal.id %>
-  <%= f.hidden_field :commentable_type, value: meal.class.to_s  %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= form_for comment, data: { click_icon_target: "form", action: "submit->click-icon#send"} do |f| %>
+    <%= f.hidden_field :commentable_id, value: meal.id %>
+    <%= f.hidden_field :commentable_type, value: meal.class.to_s  %>
+    <div >
+      <%= f.text_area :content, class: "user-box mt-3" %>
+    </div>
+    <%= f.submit class: "button-filter"%>
+  <% end %>
+</div>

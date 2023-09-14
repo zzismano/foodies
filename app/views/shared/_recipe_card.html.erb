@@ -52,10 +52,10 @@
             <% end %>
           </ul>
         </div>
+        <div>
+          <%= render "shared/comment_form", meal: recipe, comment: @comment %>
+        </div>
       </div>
-    </div>
-    <div>
-      <%= render "shared/comment_form", meal: recipe, comment: @comment %>
     </div>
   </div>
 </div>
