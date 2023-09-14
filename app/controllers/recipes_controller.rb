@@ -41,11 +41,12 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    authorize current_user
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
     if @recipe.destroy
-      redirect_to user_path(current_user)
+      redirect_to root_path
     end
   end
 
