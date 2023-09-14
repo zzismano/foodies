@@ -1,6 +1,5 @@
 <div>
   <div class="container d-flex flex-column justify-content-center align-items-center" data-controller="add-friend">
-
     <div class="container d-flex align-items-start p-4">
       <%= cl_image_tag @user.photo.key, height: 500, width: 400, crop: :fill, class: "circular-image" %>
       <div class="card-header">
@@ -31,7 +30,7 @@
     <% end %>
   <hr />
 
-  <div data-controller="toggle-switch">
+  <div data-controller="toggle-switch" class="w-100">
     <%= render "shared/toggle_switch" %>
     <div class="meals">
       <% @user_meals.each do |meal| %>
