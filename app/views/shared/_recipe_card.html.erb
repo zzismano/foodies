@@ -10,7 +10,6 @@
     </div>
 
     <div id="user_image" class="card-body">
-
         <%= link_to user_recipe_path(recipe.user_id, recipe.id) do %>
           <%= cl_image_tag recipe.photo.key, height: 500, width: 400, crop: :fill, class: "card-img-top mt-3" %>
         <% end %>
