@@ -1,4 +1,7 @@
-<% content_for :meta_title, "Check out this delicious #{@meal.title} from #{@meal.restaurant} on #{DEFAULT_META["meta_product_name"]}" %>  <% content_for :meta_description, @meal.caption %>  <% content_for :meta_image, cl_image_path(@meal.photo.path) %>
+<% content_for :meta_title, "Check out this delicious #{@meal.title} from #{@meal.restaurant} on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @meal.caption %>
+<% content_for :meta_image, cl_image_path(@meal.photo.path) %>
+
 <div class="container">
   <div class="meals">
     <%= render "shared/meal_card", meal: @meal, comment: @comment %>
