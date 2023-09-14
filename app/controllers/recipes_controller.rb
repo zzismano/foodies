@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     authorize @recipe
     authorize current_user
     if @recipe.save
-      redirect_to user_path(@recipe.user), notice: "Recipe was successfully created"
+      redirect_to root_path, notice: "Recipe was successfully created"
     else
       render :new, status: :unprocessable_entity
     end
