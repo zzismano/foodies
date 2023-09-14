@@ -1,7 +1,8 @@
 <%= simple_form_for([current_user, @meal]) do |f| %>
   <%= f.input :photo, as: :file %>
   <%= f.input :title %>
-  <%= f.input :restaurant %>
   <%= f.input :caption %>
+  <%= f.input :restaurant %>
+  <%= f.input :address %>
   <%= f.submit %>
 <% end %>
