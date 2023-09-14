@@ -63,7 +63,7 @@ export default class extends Controller {
     navigator.clipboard.writeText(url)
     event.currentTarget.disabled = true
     Swal.fire({
-      title: 'Share with Foodies!',
+      title: 'Link copied! Share with Foodies!',
       icon: 'success',
       confirmButtonText: 'Cool'
     })
