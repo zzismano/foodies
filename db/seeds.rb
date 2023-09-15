@@ -76,7 +76,7 @@ recipe1 = Recipe.new(
 
 
 file1 = URI.open("https://www.wholesomeyum.com/wp-content/uploads/2022/01/wholesomeyum-Air-Fryer-Filet-Mignon-Recipe-4.jpg")
-recipe1.photo.attach(io: file1, filename: "recipe_post.jpg", content_type: "image/jpg")
+recipe1.photos.attach([io: file1, filename: "recipe_post.jpg", content_type: "image/jpg"])
 
 recipe2 = Recipe.new(
   title:"Romeo and Juliet Cheesecake",
@@ -94,7 +94,7 @@ recipe2 = Recipe.new(
 
 
 file2 = URI.open("https://www.daninoce.com.br/wp-content/uploads/2017/09/cheesecake-romeu-e-julieta-1.png")
-recipe2.photo.attach(io: file2, filename: "recipe_post.png", content_type: "image/png")
+recipe2.photos.attach([io: file2, filename: "recipe_post.png", content_type: "image/png"])
 
 
 recipe3 = Recipe.new(
@@ -105,7 +105,7 @@ recipe3 = Recipe.new(
   user: user1)
 
 file3 = URI.open("https://assets.unileversolutions.com/recipes-v2/181044.jpg?imwidth=1600")
-recipe3.photo.attach(io: file3, filename: "recipe_post.jpg", content_type: "image/jpg")
+recipe3.photos.attach([io: file3, filename: "recipe_post.jpg", content_type: "image/jpg"])
 
 recipe1.save!
 recipe2.save!
