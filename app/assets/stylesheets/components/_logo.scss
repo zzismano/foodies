@@ -13,8 +13,7 @@
 
 
 .caption-gradient {
-  background: linear-gradient(white, $teal);
+  background: $body-bg;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: 1cap;
 }
