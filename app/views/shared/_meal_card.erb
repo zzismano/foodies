@@ -1,11 +1,25 @@
-<div  class="container mt-3 mb-3"  style="padding: initial" >
-  <div data-controller="click-icon" class="card-body" data-click-icon-url-value= "/users/<%= meal.user_id %>/meals/<%= meal.id %>">
+ <div  class="container mt-3 mb-3"  style="padding: initial" >
+  <div data-controller="click-icon" class="card-body shadow px-2 py-3" data-click-icon-url-value= "/users/<%= meal.user_id %>/meals/<%= meal.id %>">
 
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
       <%= link_to profile_path(meal.user_id), class: "text-decoration-none link-dark" do %>
-        <%= cl_image_tag meal.user.photo.key, class: "avatar-large" %>
-        <span> <%= meal.user.username %> </span>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-start">
+            <%= cl_image_tag meal.user.photo.key, class: "avatar-large border border-info-subtle border-3" %>
+            <h5 class="ps-2 pt-2"> <%= meal.user.username %> </h5>
+          </div>
+          <div class="p-1 d-flex">
+          <% if current_user == meal.user  %>
+            <%= link_to edit_user_meal_path(meal.user_id, meal.id) do%>
+              <i class="fa-solid fa-pen-to-square" style="color: #6f7785"></i>
+            <% end %>
+            <%= link_to user_meal_path(meal.user_id, meal.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
+              <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
       <% end %>
     </div>
 
@@ -17,33 +31,22 @@
 
     <div  class="card-gradient" id="title_of_restaurant" >
       <div class="d-flex justify-content-between">
-        <h5><%= meal.title%> at <%= meal.restaurant %></h5>
-        <div class="p-1">
-          <% if current_user == meal.user  %>
-            <%= link_to edit_user_meal_path(meal.user_id, meal.id) do%>
-              <i class="fa-solid fa-pen-to-square" style="color: #6f7785"></i>
-            <% end %>
-            <%= link_to user_meal_path(meal.user_id, meal.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do%>
-              <i class="fa-solid fa-xmark" style="color: #6f7785;"></i>
-            <% end %>
-          <% end %>
-        </div>
+        <h3 class="py-2"><%= meal.title%> at <%= meal.restaurant %></h3>
+
       </div>
       <p><%= meal.caption %></p>
     </div>
-
-
-
+    <hr style="">
     <div>
-      <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
-      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
-      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i>
-
-
+      <div class="d-flex justify-content-between">
+        <div>
+          <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
+          <i class="fa-regular fa-comment fa-2xl px-1" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
+        </div>
+        <div><i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i></div>
+      </div>
 
       <div id="comments" class="d-none" data-click-icon-target="comment">
-
-
         <div id="show-comments" data-click-icon-target="show-comments" class="">
           <ul data-click-icon-target="list" style="list-style-type: none;">
             <% meal.comments.each do |comment| %>
