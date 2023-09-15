@@ -3,7 +3,7 @@
 
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
-      <%= link_to profile_path(meal.user_id), class: "text-decoration-none" do %>
+      <%= link_to profile_path(meal.user_id), class: "text-decoration-none link-dark" do %>
         <%= cl_image_tag meal.user.photo.key, class: "avatar-large" %>
         <span> <%= meal.user.username %> </span>
       <% end %>
