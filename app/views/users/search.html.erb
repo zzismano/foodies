@@ -38,7 +38,7 @@
     <% @recipes.each do |recipe| %>
       <%= link_to user_recipe_path(recipe.user_id, recipe.id), class: "text-decoration-none link-dark" do %>
         <div class="card-product" data-toggle-switch-target="recipeTag">
-          <%=cl_image_tag recipe.photos.first.key %>
+          <%=cl_image_tag recipe.photo.key %>
           <div class="card-product-infos">
             <h2><%= recipe.title %> by <%= recipe.user.username %></h2>
             <p><%= recipe.caption %>.</p>
