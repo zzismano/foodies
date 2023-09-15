@@ -1,5 +1,5 @@
 <div  class="container mt-3 mb-3"  style="padding: initial" >
-  <div data-controller="click-icon" class="card-body" data-click-icon-url-value= "/users/<%= meal.user_id %>/meals/<%= meal.id %>">
+  <div data-controller="click-icon" class="card-body shadow px-2 py-3" data-click-icon-url-value= "/users/<%= meal.user_id %>/meals/<%= meal.id %>">
 
 
     <div id="header d-flex justify-content-start opacity-0" class="card-title" >
@@ -18,7 +18,7 @@
     <div  class="card-gradient" id="title_of_restaurant" >
       <div class="d-flex justify-content-between">
         <h5><%= meal.title%> at <%= meal.restaurant %></h5>
-        <div class="p-1">
+        <div class="p-1 d-flex">
           <% if current_user == meal.user  %>
             <%= link_to edit_user_meal_path(meal.user_id, meal.id) do%>
               <i class="fa-solid fa-pen-to-square" style="color: #6f7785"></i>
@@ -35,10 +35,13 @@
 
 
     <div>
-      <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
-      <i class="fa-regular fa-comment fa-2xl" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
-      <i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i>
-
+      <div class="d-flex justify-content-between">
+        <div>
+          <i class="fa-regular fa-heart fa-2xl" data-action="click->click-icon#toggleHeart" data-click-icon-target="heart"></i>
+          <i class="fa-regular fa-comment fa-2xl px-1" data-action="click->click-icon#showComment" data-click-icon-target="comment-icon"></i>
+        </div>
+        <div><i class="fa-regular fa-share-from-square fa-2xl" data-action="click->click-icon#copy" data-click-icon-target="share-icon"></i></div>
+      </div>
 
 
       <div id="comments" class="d-none" data-click-icon-target="comment">

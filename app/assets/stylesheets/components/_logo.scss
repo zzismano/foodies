@@ -2,15 +2,14 @@
   background: linear-gradient(to right, $teal, $pink)
 }
 .card-gradient {
-  background: linear-gradient(white, $pink);
+  background: $body-bg;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
 
 .caption-gradient {
-  background: linear-gradient(white, $teal);
+  background: $body-bg;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
 }
