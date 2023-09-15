@@ -14,5 +14,5 @@ class PagesController < ApplicationController
     end
   end
 
-
+  # hi
 end
